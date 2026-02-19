@@ -2,60 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Nirajan | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <title>nirajan.info.np | All-in-One Digital Utilities for Nepal</title>
+    <meta name="description" content="Access free Nepali Unicode converters, EMI calculators, Invoice makers, and WiFi QR generators at nirajan.info.np. Fast, secure, and mobile-friendly.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #f5f5f5;
-        }
-
-        header {
-            background-color: #222;
-            padding: 15px 0;
-            text-align: center;
-        }
-
-        header a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-        }
-
-        header a:hover {
-            text-decoration: underline;
-        }
-
-        main {
-            text-align: center;
-            margin-top: 100px;
-        }
-
-        h1 {
-            font-size: 32px;
-            color: #333;
-        }
-
-        p {
-            font-size: 18px;
-            color: #666;
-        }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .hero-gradient { background: radial-gradient(circle at top right, #eff6ff, #ffffff); }
+        .tool-card:hover { transform: translateY(-5px); transition: all 0.3s ease; }
     </style>
 </head>
 <body>
 
-<header>
-    <a href="index.html">HOME</a>
-    <a href="invoice.html">INVOICE</a>
-</header>
+    <nav class="sticky top-0 z-50 glass border-b border-gray-100 py-4 px-6 flex justify-between items-center">
+        <div class="text-2xl font-extrabold tracking-tight text-slate-900">
+            <span class="text-blue-600">nirajan.info.np</span>
+        </div>
+        <div class="hidden md:flex space-x-8 text-sm font-semibold text-slate-600">
+            <a href="#tools" class="hover:text-blue-600">Browse Tools</a>
+            <a href="#" class="hover:text-blue-600">About Project</a>
+            <a href="#" class="bg-blue-600 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition">Contact Me</a>
+        </div>
+    </nav>
 
-<main>
-    <h1>Hi, it's me Nirajan 👋</h1>
-    <p>The site is being constructed.</p>
-</main>
+    <header class="hero-gradient pt-20 pb-32 px-6 text-center">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-slate-900 mb-6 leading-tight">
+                Every tool you need, <br><span class="text-blue-600">all in one place.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto">
+                Welcome to <strong>our website</strong>, Nepal's single hub for digital utilities. From Unicode conversion to financial planning, we build tools that make your daily digital life easier.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#tools" class="px-8 py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 shadow-xl transition">Explore Tools</a>
+                <a href="#" class="px-8 py-4 bg-white text-slate-900 border border-gray-200 rounded-2xl font-bold hover:bg-gray-50 transition">Save to Favorites</a>
+            </div>
+        </div>
+    </header>
+
+    <main id="tools" class="max-w-7xl mx-auto px-6 -mt-16">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            
+            <div class="tool-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-indigo-50 rounded-2xl flex items-center justify-center mb-6 text-indigo-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">Nepali Unicode</h3>
+                    <p class="text-slate-500 mb-6">Convert Romanized Nepali to traditional Unicode instantly. Perfect for official documents and social media.</p>
+                </div>
+                <a href="#" class="text-blue-600 font-bold flex items-center hover:underline">
+                    Use Tool <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <div class="tool-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-emerald-50 rounded-2xl flex items-center justify-center mb-6 text-emerald-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 7h6m0 10v-3m-3 3h.01M9 17h.01M9 14h.01M12 14h.01M15 11h.01M12 11h.01M9 11h.01M7 21h10a2 2 0 002-2V5a2 2 0 00-2-2H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">EMI Calculator</h3>
+                    <p class="text-slate-500 mb-6">Accurate loan calculations tailored for Nepali banking rates. Calculate monthly payments and interest.</p>
+                </div>
+                <a href="#" class="text-blue-600 font-bold flex items-center hover:underline">
+                    Use Tool <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+            <div class="tool-card bg-white p-8 rounded-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                <div>
+                    <div class="w-14 h-14 bg-orange-50 rounded-2xl flex items-center justify-center mb-6 text-orange-600">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 011 1v2a1 1 0 001 1h-2a1 1 0 01-1-1V9a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V9a1 1 0 011-1z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-slate-900 mb-3">WiFi QR Generator</h3>
+                    <p class="text-slate-500 mb-6">Stop sharing passwords. Generate a scanable QR code for your guests to connect instantly.</p>
+                </div>
+                <a href="#" class="text-blue-600 font-bold flex items-center hover:underline">
+                    Use Tool <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg>
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <section class="max-w-4xl mx-auto py-24 px-6">
+        <h2 class="text-3xl font-extrabold text-slate-900 mb-8">Why use Nirajan.info.np?</h2>
+        <div class="prose prose-slate lg:prose-lg text-slate-600">
+            <p class="mb-4">Finding reliable, fast, and mobile-friendly tools in Nepal can be difficult. Most websites are cluttered with ads and slow loading times. Our platform is designed with a <strong>Mobile-First</strong> approach, ensuring that whether you are on a bus using your phone or at your office desk, the experience is seamless.</p>
+            <p class="mb-4">All our tools, like the <strong>Invoice Maker</strong> and <strong>Case Converter</strong>, process data locally when possible, ensuring your privacy and speed. We are constantly adding new utilities to help the Nepali community digitize their workflow.</p>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
+        <p>&copy; 2026 nirajan.info.np | Built for the Nepali Community</p>
+    </footer>
 
 </body>
 </html>
