@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIRAJAN.TOOLS | Digital Utilities for Nepal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; scroll-behavior: smooth; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
+        .hero-gradient { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
+        .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; color: #2563eb; }
+        .tool-card { @apply bg-white p-6 rounded-[2rem] border border-slate-100 transition-all duration-300 hover:shadow-xl hover:shadow-blue-100 hover:-translate-y-1 flex flex-col h-full; }
+        .icon-circle { @apply w-12 h-12 rounded-xl flex items-center justify-center mb-4; }
+    </style>
+</head>
+<body>
+
+    <nav class="sticky top-0 z-50 glass border-b border-gray-100 py-4 px-6 flex justify-between items-center">
+        <a href="index.html" class="logo-text">NIRAJAN.TOOLS</a>
+        <div class="flex space-x-6 text-sm font-semibold text-slate-600">
+            <a href="#tools" class="hover:text-blue-600">Utilities</a>
+            <a href="https://nirajan.info.np" class="hidden md:block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">About Me</a>
+        </div>
+    </nav>
+
+    <header class="hero-gradient border-b border-slate-100">
+        <div class="max-w-6xl mx-auto px-6 py-12 md:py-20 flex flex-col md:flex-row items-center justify-between gap-10">
+            <div class="text-left max-w-xl">
+                <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4">
+                    <span>🇳🇵</span> Built for Nepal
+                </div>
+                <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 leading-tight">
+                    Digital Tools, <span class="text-blue-600">Simplified.</span>
+                </h1>
+                <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-8">
+                    Fast, secure, and privacy-first web utilities for developers, students, and professionals in Nepal.
+                </p>
+                <a href="#tools" class="px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition shadow-lg inline-flex items-center text-sm">
+                    Get Started
+                    <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-width="2" stroke-linecap="round"/></svg>
+                </a>
+            </div>
+            
+            <div class="hidden md:grid grid-cols-2 gap-4 w-full max-w-sm">
+                <div class="p-4 bg-white/50 rounded-2xl border border-white shadow-sm">
+                    <div class="text-blue-600 font-bold text-xl">100%</div>
+                    <div class="text-slate-500 text-xs">Private & Offline</div>
+                </div>
+                <div class="p-4 bg-white/50 rounded-2xl border border-white shadow-sm">
+                    <div class="text-emerald-600 font-bold text-xl">Fast</div>
+                    <div class="text-slate-500 text-xs">No Login Required</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main id="tools" class="max-w-6xl mx-auto px-6 py-16">
+        <div class="mb-10">
+            <h2 class="text-2xl font-bold text-slate-900">Featured Utilities</h2>
+            <div class="h-1 w-12 bg-blue-600 mt-2 rounded-full"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <a href="nepali-unicode.html" class="tool-card">
+                <div class="icon-circle bg-blue-100 text-blue-600">
+                    <span class="text-xl font-bold">अ</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Smart Unicode</h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-4">Romanized Nepali to Devanagari conversion.</p>
+                <span class="mt-auto text-blue-600 font-bold text-xs flex items-center">Open Tool →</span>
+            </a>
+
+            <a href="emi-calculator.html" class="tool-card">
+                <div class="icon-circle bg-emerald-100 text-emerald-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">EMI Calculator</h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-4">Loan planning for Nepali banks.</p>
+                <span class="mt-auto text-emerald-600 font-bold text-xs flex items-center">Open Tool →</span>
+            </a>
+
+            <a href="case-converter.html" class="tool-card">
+                <div class="icon-circle bg-purple-100 text-purple-600">
+                    <span class="text-lg font-bold">Aa</span>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Case Converter</h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-4">Upper, lower, title, and sentence case.</p>
+                <span class="mt-auto text-purple-600 font-bold text-xs flex items-center">Open Tool →</span>
+            </a>
+
+            <a href="typing-speed-practice.html" class="tool-card">
+                <div class="icon-circle bg-orange-100 text-orange-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" stroke-width="2" stroke-linecap="round"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">Typing Master</h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-4">Improve WPM for operator exams.</p>
+                <span class="mt-auto text-orange-600 font-bold text-xs flex items-center">Open Tool →</span>
+            </a>
+
+            <a href="wifi-qr-code-generator.html" class="tool-card">
+                <div class="icon-circle bg-sky-100 text-sky-600">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4V3m8 9h1M3 12h1m8 8v1m8-9a8 8 0 11-16 0 8 8 0 0116 0zm-4 0a4 4 0 11-8 0 4 4 0 018 0z" stroke-width="2"/></svg>
+                </div>
+                <h3 class="text-lg font-bold text-slate-900 mb-2">WiFi QR Gen</h3>
+                <p class="text-slate-500 text-xs leading-relaxed mb-4">Printable scan-to-connect QR codes.</p>
+                <span class="mt-auto text-sky-600 font-bold text-xs flex items-center">Open Tool →</span>
+            </a>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
+        <div class="logo-text mb-4 text-white">NIRAJAN.TOOLS</div>
+        <p class="text-xs opacity-50">&copy; 2026 NIRAJAN.TOOLS | Built for Nepal</p>
+    </footer>
+
+</body>
+</html>
