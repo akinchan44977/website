@@ -4,22 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Professional Invoice | NIRAJAN.TOOLS</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
-
     <style>
         body { 
             font-family: 'Plus Jakarta Sans', sans-serif; 
             background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); 
             min-height: 100vh;
+            color: #1e293b; 
         }
         .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
         .logo-text { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.025em; color: #2563eb; }
 
-        /* A4 Invoice Container */
         .invoice-card {
-            width: 800px;
+            width: 100%;
+            max-width: 800px; /* Limits width on desktop */
             margin: 20px auto;
             background: #FFFFFF;
             padding: 40px;
@@ -28,7 +27,6 @@
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
         }
 
-        /* 33px Left Aligned Heading */
         h1.invoice-title {
             text-align: left;
             font-size: 33px; 
@@ -46,12 +44,10 @@
             text-transform: uppercase;
         }
 
-        /* Optimized Table */
         table {
             width: 100%;
             margin-top: 20px;
             border-collapse: collapse;
-            table-layout: fixed;
         }
 
         th {
@@ -71,7 +67,6 @@
             color: #1e293b;
         }
 
-        /* UK Date Input Styling */
         input[type="date"] {
             border: none;
             outline: none;
@@ -79,10 +74,62 @@
             font-size: 0.875rem;
             color: #1e293b;
             background: transparent;
+            max-width: 130px;
+        }
+
+        .editable-footer-box {
+            width: 100%;
+            border: 1px dashed #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            min-height: 50px;
+            color: #1e293b;
+        }
+
+        /* MOBILE RESPONSIVE TWEAKS */
+        @media (max-width: 640px) {
+            .invoice-card {
+                padding: 20px;
+                border-radius: 0;
+                margin: 0;
+            }
+            .grid-cols-2 {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            .text-right {
+                text-align: left !important;
+            }
+            
+            /* Stack table on mobile */
+            thead { display: none; }
+            tr { 
+                display: block; 
+                margin-bottom: 1rem; 
+                border: 1px solid #e2e8f0;
+            }
+            td { 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                border: none;
+                border-bottom: 1px solid #f1f5f9;
+                text-align: right !important;
+            }
+            td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                text-transform: uppercase;
+                font-size: 10px;
+                color: #64748b;
+                float: left;
+            }
+            td:last-child { border-bottom: none; }
         }
 
         @media print {
             .no-print { display: none !important; }
+            .editable-footer-box { border: none !important; padding: 15px 0 !important; }
             body { background: white !important; padding: 0; }
             .invoice-card { 
                 box-shadow: none !important; 
@@ -91,14 +138,12 @@
                 width: 100% !important; 
                 padding: 30px !important;
             }
-            td { padding: 6px 12px !important; }
             #date-display { display: inline-block !important; }
             #date-picker { display: none !important; }
         }
     </style>
 </head>
 <body>
-
     <nav class="sticky top-0 z-50 glass border-b border-gray-100 py-4 px-6 flex justify-between items-center no-print">
         <a href="index.html" class="logo-text">NIRAJAN.TOOLS</a>
         <button onclick="window.print()" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 font-bold text-sm">Save as PDF</button>
@@ -110,13 +155,13 @@
         <div class="grid grid-cols-2 gap-10 mb-6 pb-6 border-b border-slate-100">
             <div>
                 <p class="font-extrabold text-slate-900" contenteditable="true">Your Name</p>
-                <p class="text-slate-500 text-sm" contenteditable="true">Your Address Line 1</p>
-                <p class="text-slate-500 text-sm" contenteditable="true">City</p>
-                <p class="text-slate-500 text-sm" contenteditable="true">Post Code</p>
+                <p class="text-slate-900 text-sm" contenteditable="true">Your Address Line 1</p>
+                <p class="text-slate-900 text-sm" contenteditable="true">City</p>
+                <p class="text-slate-900 text-sm" contenteditable="true">Post Code</p>
             </div>
-            <div class="text-right">
+            <div class="text-right text-slate-900">
                 <h2 class="section-title">Invoice Details</h2>
-                <p class="text-xs"><b>Number:</b> <span contenteditable="true">00x/25/26</span></p>
+                <p class="text-xs"><b>Number:</b> <span contenteditable="true">Type Here</span></p>
                 <p class="text-xs"><b>Date:</b> 
                     <input type="date" id="date-picker" onchange="updateDateDisplay()">
                     <span id="date-display" class="hidden"></span>
@@ -127,9 +172,9 @@
         <div class="mb-6">
             <h2 class="section-title">Bill To</h2>
             <p class="font-bold text-slate-900 text-sm" contenteditable="true">Client Name</p>
-            <p class="text-slate-500 text-sm" contenteditable="true">Client's Address</p>
-            <p class="text-slate-500 text-sm" contenteditable="true">City</p>
-            <p class="text-slate-500 text-sm" contenteditable="true">Post Code</p>
+            <p class="text-slate-900 text-sm" contenteditable="true">Client's Address</p>
+            <p class="text-slate-900 text-sm" contenteditable="true">City</p>
+            <p class="text-slate-900 text-sm" contenteditable="true">Post Code</p>
         </div>
 
         <table id="items-table">
@@ -144,10 +189,10 @@
             </thead>
             <tbody>
                 <tr>
-                    <td contenteditable="true">Initial Service</td>
-                    <td contenteditable="true" class="qty" oninput="calculate()">1</td>
-                    <td contenteditable="true" class="rate" oninput="calculate()">0.00</td>
-                    <td class="row-total">0.00</td>
+                    <td data-label="Description" contenteditable="true">New Description</td>
+                    <td data-label="Days/Hours" contenteditable="true" class="qty" oninput="calculate()">1</td>
+                    <td data-label="Rate (£)" contenteditable="true" class="rate" oninput="calculate()">0.00</td>
+                    <td data-label="Total (£)" class="row-total">0.00</td>
                     <td class="no-print text-center">
                         <button onclick="removeRow(this)" class="text-red-500 text-xs font-bold">Remove</button>
                     </td>
@@ -163,45 +208,44 @@
             <p class="text-xl font-extrabold text-[#003366]">Total: £<span id="grand-total">0.00</span></p>
         </div>
 
-        <div class="mt-10 grid grid-cols-2 gap-10">
-            <div>
-                <h2 class="section-title">Bank Details</h2>
-                <div class="text-xs space-y-1 text-slate-600">
-                    <p><b>Account Holder:</b> <span contenteditable="true">Name</span></p>
-                    <p><b>Bank Name:</b> <span contenteditable="true">Bank Name</span></p>
-                    <p><b>Sort Code:</b> <span contenteditable="true">00-00-00</span></p>
-                    <p><b>Account Number:</b> <span contenteditable="true">00000000</span></p>
-                </div>
+        <div class="mt-10">
+            <h2 class="section-title">Bank Details</h2>
+            <div class="text-xs space-y-1 text-slate-900">
+                <p><b>Name of Account Holder:</b> <span contenteditable="true">Type Here</span></p>
+                <p><b>Name of Bank:</b> <span contenteditable="true">Type Here</span></p>
+                <p><b>Sort Code:</b> <span contenteditable="true">00-00-00</span></p>
+                <p><b>Account Number:</b> <span contenteditable="true">00000000</span></p>
             </div>
-            <div class="text-right flex flex-col justify-end">
-                <p class="text-slate-400 italic text-xs">Thank you for your business! For any inquiries, please contact xxxxxx.</p>
+        </div>
+
+        <div class="mt-8">
+            <div class="editable-footer-box italic text-xs leading-relaxed" contenteditable="true">
+                Thank you for your business! For any inquiries, please contact at xxxx.
             </div>
         </div>
     </div>
 
     <script>
-        // Set Today's Date in UK Format (DD/MM/YYYY) for display
         const dateInput = document.getElementById('date-picker');
         const today = new Date();
         dateInput.valueAsDate = today;
 
         function updateDateDisplay() {
             const dateVal = new Date(dateInput.value);
-            const formatted = dateVal.toLocaleDateString('en-GB'); // UK Format
+            const formatted = dateVal.toLocaleDateString('en-GB'); 
             document.getElementById('date-display').innerText = formatted;
         }
         
-        // Run once on load
         updateDateDisplay();
 
         function addRow() {
             const tbody = document.querySelector('#items-table tbody');
             const row = document.createElement('tr');
             row.innerHTML = `
-                <td contenteditable="true">New Description</td>
-                <td contenteditable="true" class="qty" oninput="calculate()">1</td>
-                <td contenteditable="true" class="rate" oninput="calculate()">0.00</td>
-                <td class="row-total">0.00</td>
+                <td data-label="Description" contenteditable="true">New Description</td>
+                <td data-label="Days/Hours" contenteditable="true" class="qty" oninput="calculate()">1</td>
+                <td data-label="Rate (£)" contenteditable="true" class="rate" oninput="calculate()">0.00</td>
+                <td data-label="Total (£)" class="row-total">0.00</td>
                 <td class="no-print text-center">
                     <button onclick="removeRow(this)" class="text-red-500 text-xs font-bold">Remove</button>
                 </td>
