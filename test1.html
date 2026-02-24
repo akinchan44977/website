@@ -25,7 +25,7 @@
             border-radius: 1.5rem;
             border: 1px solid #f1f5f9;
             box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1);
-            -webkit-print-color-adjust: exact; /* Ensures colors/gradients show in PDF */
+            -webkit-print-color-adjust: exact;
             print-color-adjust: exact;
         }
 
@@ -88,8 +88,8 @@
             color: #1e293b;
         }
 
-        /* MOBILE RESPONSIVE TWEAKS */
-        @media (max-width: 640px) {
+        /* MOBILE RESPONSIVE TWEAKS (SCREEN ONLY) */
+        @media screen and (max-width: 640px) {
             .invoice-card {
                 padding: 20px;
                 border-radius: 0;
@@ -113,8 +113,8 @@
                 display: flex; 
                 justify-content: space-between; 
                 align-items: center;
-                border: none;
-                border-bottom: 1px solid #f1f5f9;
+                border: none !important;
+                border-bottom: 1px solid #f1f5f9 !important;
                 text-align: right !important;
             }
             td::before {
@@ -125,10 +125,10 @@
                 color: #64748b;
                 float: left;
             }
-            td:last-child { border-bottom: none; }
+            td:last-child { border-bottom: none !important; }
         }
 
-        /* UPDATED PRINT VIEW TO MATCH WEB VIEW */
+        /* PRINT / PDF VIEW: FORCES DESKTOP LOOK ON ALL DEVICES */
         @media print {
             .no-print { display: none !important; }
             body { 
@@ -138,19 +138,30 @@
             }
             .invoice-card { 
                 box-shadow: none !important; 
-                border: 1px solid #f1f5f9 !important; 
+                border: none !important; 
                 margin: 0 auto !important; 
                 width: 100% !important; 
                 max-width: 100% !important;
-                border-radius: 1.5rem !important;
-                padding: 40px !important;
+                border-radius: 0 !important;
+                padding: 20px !important;
             }
-            /* Show Date Picker value in Print */
+
+            /* Force the 2-column header layout back */
+            .grid { display: grid !important; grid-template-columns: 1fr 1fr !important; }
+            .text-right { text-align: right !important; }
+
+            /* Force the table back to standard desktop rows */
+            table { display: table !important; width: 100% !important; }
+            thead { display: table-header-group !important; }
+            tbody { display: table-row-group !important; }
+            tr { display: table-row !important; page-break-inside: avoid; }
+            th, td { display: table-cell !important; border: 1px solid #e2e8f0 !important; }
+            
+            /* Hide the "Description", "Rate" labels from mobile view */
+            td::before { display: none !important; }
+
             #date-display { display: inline-block !important; }
             #date-picker { display: none !important; }
-            
-            /* Ensure the table doesn't break across pages poorly */
-            tr { page-break-inside: avoid; }
         }
     </style>
 </head>
