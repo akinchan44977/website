@@ -1,0 +1,1225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>nirajan.info.np | Create Job CV Online & Download PDF</title>
+
+  <meta name="description" content="Create a professional CV for jobs in Nepal. Free online CV builder with live preview and PDF download. Ideal for freshers, students, administrative assistant, office assistant, receptionist, and admin officer roles in Kathmandu and across Nepal." />
+  <meta name="keywords" content="CV builder Nepal, free CV builder Nepal, CV format Nepal, CV for job in Nepal, online CV maker Nepal, professional CV Nepal, job CV Nepal, Nepal CV template, CV Kathmandu, administrative assistant CV Nepal, office assistant CV Nepal, admin officer CV Nepal, receptionist CV Nepal, fresher CV Nepal, student CV Nepal, MBA CV Nepal, CV download PDF Nepal" />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+
+  <link rel="canonical" href="https://nirajan.info.np/cv_builder.html" />
+
+  <meta property="og:title" content="nirajan.info.np | Create Job CV Online & Download PDF" />
+  <meta property="og:description" content="Build a professional CV for Nepal jobs with live preview and PDF export. Great for freshers, students, admin, office assistant, and receptionist roles." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nirajan.info.np/cv_builder.html" />
+  <meta property="og:image" content="https://nirajan.info.np/og/cv-builder-nepal-1200x630.png" />
+  <meta property="og:site_name" content="nirajan.info.np" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="nirajan.info.np | Create Job CV Online & Download PDF" />
+  <meta name="twitter:description" content="Free online CV builder for Nepal jobs. Make your CV, preview it live, and save as PDF." />
+  <meta name="twitter:image" content="https://nirajan.info.np/og/cv-builder-nepal-1200x630.png" />
+
+  <meta name="theme-color" content="#3498db" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --ink: #111111;
+      --blue: #3498db;
+      --blue-dark: #1d4f7a;
+      --name: #184e77;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --card: #ffffff;
+      --bg: #f8fafc;
+      --danger: #ef4444;
+      --success: #16a34a;
+      --radius: 12px;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: "Poppins", system-ui, sans-serif;
+      color: var(--ink);
+      margin: 0 auto;
+      padding: 20px;
+      background: var(--bg);
+      max-width: 1240px;
+      line-height: 1.55;
+      font-size: 14px;
+    }
+
+    .page-title {
+      margin: 0 0 16px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: 430px 1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .stack {
+      display: grid;
+      gap: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 16px;
+      background: var(--card);
+      box-shadow: var(--shadow);
+    }
+
+    .form h2,
+    .cv-guide h2 {
+      font-size: 18px;
+      margin: 0 0 12px;
+      color: #0f172a;
+      font-family: "Poppins", system-ui, sans-serif;
+    }
+
+    .field { margin-bottom: 12px; }
+
+    .field label {
+      display: block;
+      font-size: 12px;
+      color: #334155;
+      margin-bottom: 6px;
+      font-weight: 600;
+      font-family: "Poppins", system-ui, sans-serif;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      border: 1px solid #cbd5e1;
+      border-radius: 10px;
+      padding: 10px 12px;
+      font: inherit;
+      resize: vertical;
+      min-height: 42px;
+      background: #fff;
+      color: #111827;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus,
+    button:focus {
+      outline: 3px solid rgba(52, 152, 219, 0.2);
+      outline-offset: 1px;
+      border-color: var(--blue);
+    }
+
+    .row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .muted {
+      font-size: 12px;
+      color: #64748b;
+    }
+
+    .status {
+      font-size: 12px;
+      color: var(--success);
+      min-height: 18px;
+      margin-top: 6px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    button {
+      padding: 10px 14px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      background: var(--blue);
+      color: #fff;
+      font-size: 14px;
+      font-weight: 600;
+      font-family: "Poppins", system-ui, sans-serif;
+      transition: transform .04s ease, opacity .15s ease, background .15s ease;
+    }
+
+    button:hover { opacity: 0.96; }
+    button:active { transform: translateY(1px); }
+
+    .btn-ghost {
+      background: #eff6ff;
+      color: #1e40af;
+    }
+
+    .btn-danger {
+      background: var(--danger);
+      color: #fff;
+    }
+
+    .toolbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+    }
+
+    .toolbar-right {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .work-item {
+      border: 1px dashed #cbd5e1;
+      border-radius: 10px;
+      padding: 12px;
+      margin-bottom: 10px;
+      background: #fcfdff;
+    }
+
+    .preview-wrap {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .preview-inner {
+      padding: 28px 34px;
+      background: #fff;
+    }
+
+    #preview h1 {
+      font-family: "Poppins", system-ui, sans-serif;
+      font-size: 32px;
+      line-height: 1.05;
+      letter-spacing: 0.2px;
+      color: var(--name);
+      margin: 0 0 8px;
+    }
+
+    #preview h2 {
+      font-size: 17px;
+      margin: 22px 0 10px;
+      border-bottom: 2px solid var(--blue);
+      padding-bottom: 4px;
+      color: var(--blue-dark);
+      font-family: "Poppins", system-ui, sans-serif;
+    }
+
+    #preview h3 {
+      font-size: 14px;
+      margin: 4px 0;
+      font-weight: 700;
+      color: #111111;
+      font-family: "Poppins", system-ui, sans-serif;
+    }
+
+    #preview p,
+    #preview address,
+    #preview .job span {
+      margin: 3px 0;
+    }
+
+    #preview p {
+      text-align: justify;
+    }
+
+    #preview address {
+      font-style: normal;
+      margin-bottom: 12px;
+      color: #111111;
+    }
+
+    #preview ul {
+      padding-left: 18px;
+      margin: 0;
+    }
+
+    #preview ul li {
+      margin-bottom: 5px;
+      padding-left: 2px;
+      color: #111111;
+    }
+
+    .job {
+      margin-bottom: 14px;
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .job span {
+      display: block;
+      color: #000000;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .skills-list {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      column-gap: 28px;
+      row-gap: 2px;
+    }
+
+    .cv-guide {
+      max-width: 980px;
+      margin: 32px auto 0;
+    }
+
+    .note {
+      background: #f9fafb;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 12px;
+    }
+
+    details {
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px 12px;
+      margin: 10px 0;
+      background: #fff;
+    }
+
+    summary {
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .kbd {
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: #f3f4f6;
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 2px 6px;
+    }
+
+    @media (max-width: 980px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+
+      .preview-inner {
+        padding: 22px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+        max-width: 800px;
+        font-size: 12px;
+      }
+
+      .page-title,
+      .form,
+      .toolbar,
+      .cv-guide {
+        display: none !important;
+      }
+
+      .layout {
+        display: block;
+      }
+
+      .preview-wrap {
+        border: none;
+        box-shadow: none;
+        border-radius: 0;
+      }
+
+      .preview-inner {
+        padding: 0;
+      }
+
+      #preview h1 {
+        font-size: 28px;
+      }
+
+      #preview h2 {
+        font-size: 14px;
+        margin-top: 16px;
+      }
+
+      #preview address {
+        margin-bottom: 10px;
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+
+    @page {
+      size: A4;
+      margin: 10.5mm 15mm;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="page-title">nirajan.info.np</h1>
+
+  <div class="toolbar" aria-label="Page actions">
+    <div class="muted">Create a professional CV for jobs in Nepal. Edit on the left and download your PDF-ready CV with live preview.</div>
+    <div class="toolbar-right">
+      <button type="button" class="btn-ghost" id="resetBtn">Reset</button>
+      <button type="button" id="printTopBtn">Save / Print PDF</button>
+    </div>
+  </div>
+
+  <div class="layout">
+    <section class="form stack" aria-label="CV editor">
+      <div class="card">
+        <h2>Header</h2>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" placeholder="Peter Parker" value="Peter Parker" />
+        </div>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" type="email" placeholder="you@example.com" value="you@example.com" />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input id="phone" placeholder="+977-98XXXXXXXX" value="+977-98XXXXXXXX" />
+          </div>
+          <div class="field">
+            <label for="location">Location</label>
+            <input id="location" placeholder="Kathmandu, Nepal" value="Kathmandu, Nepal" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Personal Statement</h2>
+        <div class="field">
+          <label for="headingStatement">Section heading</label>
+          <input id="headingStatement" value="Personal Statement" />
+        </div>
+        <div class="field">
+          <label for="statement">Summary (4–6 sentences)</label>
+          <textarea id="statement" rows="7" placeholder="Write a concise professional summary.">Motivated administration-focused professional with a Bachelor's in Business Administration and strong interest in office support and coordination roles in Nepal. Experienced in customer service, scheduling, documentation, communication, and daily administrative tasks. Comfortable using Microsoft Word, Excel, Outlook, PowerPoint, email handling, and digital record keeping. Known for reliability, time management, attention to detail, and the ability to learn quickly. Seeking an Administrative Assistant, Office Assistant, Receptionist, or Admin Officer role in Kathmandu or other cities in Nepal.</textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Work History</h2>
+        <div class="field">
+          <label for="headingWork">Section heading</label>
+          <input id="headingWork" value="Work History" />
+        </div>
+        <div id="work-form"></div>
+        <div class="buttons">
+          <button type="button" class="btn-ghost" id="addWorkBtn">Add Work Experience</button>
+        </div>
+        <p class="muted">Tips: put bullets on separate lines. Dates as “Feb 2025 - Mar 2025” or “Apr 2023 - Present”.</p>
+      </div>
+
+      <div class="card">
+        <h2>Education</h2>
+        <div class="field">
+          <label for="headingEducation">Section heading</label>
+          <input id="headingEducation" value="Education" />
+        </div>
+        <div id="education-form"></div>
+        <div class="buttons">
+          <button type="button" class="btn-ghost" id="addEducationBtn">Add Education</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Skills</h2>
+        <div class="field">
+          <label for="headingSkills">Section heading</label>
+          <input id="headingSkills" value="Skills" />
+        </div>
+        <div class="field">
+          <label for="skills">Skills (comma or newline separated)</label>
+          <textarea id="skills" rows="5">Office Administration, Administrative Support, Customer Service, Scheduling, Calendar Management, Microsoft Word, Microsoft Excel, Microsoft Outlook, PowerPoint, Data Entry, Record Keeping, Email Handling, Communication Skills, Time Management, Multitasking, Team Collaboration, Problem Solving, Attention to Detail, Front Desk Support, Nepali Typing, English Typing</textarea>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>Certificates</h2>
+        <div class="field">
+          <label for="headingCertificates">Section heading</label>
+          <input id="headingCertificates" value="Certificates" />
+        </div>
+        <div id="certificates-form"></div>
+        <div class="buttons">
+          <button type="button" class="btn-ghost" id="addCertificateBtn">Add Certificate</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>References</h2>
+        <div class="field">
+          <label for="headingReferences">Section heading</label>
+          <input id="headingReferences" value="References" />
+        </div>
+        <div id="references-form"></div>
+        <div class="buttons">
+          <button type="button" class="btn-ghost" id="addReferenceBtn">Add Reference</button>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="buttons">
+          <button type="button" id="printBottomBtn">Save / Print PDF</button>
+          <button type="button" class="btn-ghost" id="downloadNameBtn">Suggest file name</button>
+        </div>
+        <div id="saveStatus" class="status" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <section class="preview-wrap" aria-label="CV preview">
+      <div class="preview-inner">
+        <section id="preview">
+          <h1 id="pv-name">Your Full Name</h1>
+          <address id="pv-address">you@example.com | +977-98XXXXXXXX | Kathmandu, Nepal</address>
+
+          <h2 id="pv-heading-statement">Personal Statement</h2>
+          <p id="pv-statement"></p>
+
+          <h2 id="pv-heading-work">Work History</h2>
+          <div id="pv-work"></div>
+
+          <h2 id="pv-heading-education">Education</h2>
+          <div id="pv-education"></div>
+
+          <h2 id="pv-heading-skills">Skills</h2>
+          <ul id="pv-skills" class="skills-list"></ul>
+
+          <h2 id="pv-heading-certificates">Certificates</h2>
+          <ul id="pv-certificates"></ul>
+
+          <h2 id="pv-heading-references">References</h2>
+          <ul id="pv-references"></ul>
+        </section>
+      </div>
+    </section>
+  </div>
+
+  <template id="work-item-template">
+    <div class="work-item">
+      <div class="field">
+        <label>Job title – Employer, Location</label>
+        <input class="w-title" value="Administrative Assistant – ABC Office, Kathmandu" />
+      </div>
+      <div class="field">
+        <label>Dates</label>
+        <input class="w-dates" value="Jan 2023 - Present" />
+      </div>
+      <div class="field">
+        <label>Bullets (one per line)</label>
+        <textarea class="w-bullets" rows="5">Managed office files and maintained digital records
+Scheduled meetings and coordinated staff calendars
+Handled calls, emails, and front desk communication professionally
+Prepared documents and spreadsheets using Microsoft Word and Excel</textarea>
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-danger remove-work-btn">Remove</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="education-item-template">
+    <div class="work-item">
+      <div class="field">
+        <label>Qualification / Degree</label>
+        <input class="e-degree" value="BBA" />
+      </div>
+      <div class="field">
+        <label>Institution, City</label>
+        <input class="e-school" value="Tribhuvan University, Kathmandu" />
+      </div>
+      <div class="field">
+        <label>Dates</label>
+        <input class="e-dates" value="2018 - 2022" />
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-danger remove-education-btn">Remove</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="certificate-item-template">
+    <div class="work-item">
+      <div class="field">
+        <label>Certificate</label>
+        <input class="c-name" value="Microsoft Office Training" />
+      </div>
+      <div class="field">
+        <label>Year / Issuer</label>
+        <input class="c-meta" value="2023" />
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-danger remove-certificate-btn">Remove</button>
+      </div>
+    </div>
+  </template>
+
+  <template id="reference-item-template">
+    <div class="work-item">
+      <div class="field">
+        <label>Name</label>
+        <input class="r-name" value="Referee Name" />
+      </div>
+      <div class="field">
+        <label>Role / Company</label>
+        <input class="r-role" value="Office Manager, ABC Office" />
+      </div>
+      <div class="field">
+        <label>Email / Contact</label>
+        <input class="r-contact" value="manager@example.com" />
+      </div>
+      <div class="buttons">
+        <button type="button" class="btn-danger remove-reference-btn">Remove</button>
+      </div>
+    </div>
+  </template>
+
+  <section class="cv-guide" aria-label="CV Builder Nepal guide">
+    <h2>nirajan.info.np</h2>
+    <p>
+      Use this free online CV builder to create a professional CV for jobs in Nepal. It is designed for students, freshers, graduates, MBA students, and experienced candidates applying for roles such as Administrative Assistant, Office Assistant, Receptionist, Admin Officer, Front Desk Officer, Customer Service, Back Office, NGO, INGO, banking, education, and hospitality positions.
+    </p>
+
+    <p>
+      In Nepal, many employers prefer a clear, professional CV that includes your profile summary, education, work experience, skills, and references. A simple, well-structured CV can help you apply more confidently for jobs in Kathmandu, Pokhara, Lalitpur, Bhaktapur, Butwal, Biratnagar, Chitwan, and across Nepal.
+    </p>
+
+    <details>
+      <summary>Who can use this CV builder in Nepal?</summary>
+      <ul>
+        <li>Freshers creating their first CV</li>
+        <li>+2 students and Bachelor's students applying for internships or entry-level jobs</li>
+        <li>MBA and BBA graduates applying for administrative and office roles</li>
+        <li>Receptionist, office assistant, and front desk candidates</li>
+        <li>People switching from hospitality, retail, or service jobs into office work</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Best CV format for Nepal</summary>
+      <ul>
+        <li>Use a professional CV layout with clear section headings</li>
+        <li>Start with your name, mobile number, email, and address</li>
+        <li>Add a short personal profile or career objective</li>
+        <li>List education from latest to older qualification</li>
+        <li>Include work experience with bullet points and responsibilities</li>
+        <li>Add computer skills such as MS Word, Excel, Outlook, email handling, and Nepali/English typing</li>
+        <li>Include references if requested by the employer</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Popular CV searches in Nepal</summary>
+      <ul>
+        <li>free CV builder Nepal</li>
+        <li>CV format for job in Nepal</li>
+        <li>online CV maker Nepal</li>
+        <li>professional CV Nepal PDF</li>
+        <li>fresher CV sample Nepal</li>
+        <li>administrative assistant CV Nepal</li>
+        <li>office assistant CV Nepal</li>
+        <li>receptionist CV Nepal</li>
+        <li>MBA CV Nepal</li>
+        <li>student CV format Nepal</li>
+      </ul>
+    </details>
+
+    <details>
+      <summary>Tips to make your CV stronger for Nepal jobs</summary>
+      <ul>
+        <li>Use “CV” in your page copy, not only “resume”</li>
+        <li>Mention Nepal and Kathmandu naturally in headings and descriptions</li>
+        <li>Add job-specific keywords like Administrative Assistant, Office Assistant, Receptionist, Admin Officer, and Front Desk</li>
+        <li>Keep the layout simple and ATS-friendly</li>
+        <li>Save your file as PDF before applying on job portals</li>
+      </ul>
+    </details>
+  </section>
+
+  <script>
+    const STORAGE_KEY = "cv_builder_nepal_v1";
+
+    const defaults = {
+      name: "Peter Parker",
+      email: "you@example.com",
+      phone: "+977-98XXXXXXXX",
+      location: "Kathmandu, Nepal",
+      statement: "Motivated administration-focused professional with a Bachelor's in Business Administration and strong interest in office support and coordination roles in Nepal. Experienced in customer service, scheduling, documentation, communication, and daily administrative tasks. Comfortable using Microsoft Word, Excel, Outlook, PowerPoint, email handling, and digital record keeping. Known for reliability, time management, attention to detail, and the ability to learn quickly. Seeking an Administrative Assistant, Office Assistant, Receptionist, or Admin Officer role in Kathmandu or other cities in Nepal.",
+      skills: "Office Administration, Administrative Support, Customer Service, Scheduling, Calendar Management, Microsoft Word, Microsoft Excel, Microsoft Outlook, PowerPoint, Data Entry, Record Keeping, Email Handling, Communication Skills, Time Management, Multitasking, Team Collaboration, Problem Solving, Attention to Detail, Front Desk Support, Nepali Typing, English Typing",
+
+      headingStatement: "Personal Statement",
+      headingWork: "Work History",
+      headingEducation: "Education",
+      headingSkills: "Skills",
+      headingCertificates: "Certificates",
+      headingReferences: "References",
+
+      work: [
+        {
+          title: "Cleaner – City Clean Services, Kathmandu",
+          dates: "Jun 2020 - Aug 2021",
+          bullets: [
+            "Performed cleaning and maintenance of office spaces",
+            "Managed supplies and reported stock shortages",
+            "Ensured high hygiene standards in shared areas"
+          ]
+        },
+        {
+          title: "Café Staff – City Café, Kathmandu",
+          dates: "Sep 2021 - Dec 2022",
+          bullets: [
+            "Provided excellent customer service and handled orders efficiently",
+            "Managed POS transactions and balanced cash at end of shift",
+            "Assisted with inventory checks and stock rotation"
+          ]
+        },
+        {
+          title: "Administrative Assistant – ABC Office, Kathmandu",
+          dates: "Jan 2023 - Present",
+          bullets: [
+            "Managed office filing systems and digitised records",
+            "Scheduled meetings and coordinated calendars for staff",
+            "Handled calls, emails, and front desk enquiries professionally",
+            "Prepared documents and spreadsheets using Microsoft Word and Excel"
+          ]
+        }
+      ],
+
+      education: [
+        { degree: "BBA", school: "Tribhuvan University, Kathmandu", dates: "2018 - 2022" },
+        { degree: "MBA (Ongoing)", school: "University in Kathmandu, Nepal", dates: "2024 - Present" }
+      ],
+
+      certificates: [
+        { name: "Microsoft Office Training", meta: "2023" },
+        { name: "Business Communication Certificate", meta: "2022" },
+        { name: "Customer Service Training", meta: "2021" }
+      ],
+
+      references: [
+        { name: "Referee Name", role: "Office Manager, ABC Office", contact: "manager@example.com" },
+        { name: "Referee Name", role: "Supervisor, City Café", contact: "supervisor@example.com" }
+      ]
+    };
+
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    function lines(text) {
+      return text.split(/\r?\n/).map(s => s.trim()).filter(Boolean);
+    }
+
+    function csvOrLines(text) {
+      const byNewline = lines(text);
+      if (byNewline.length > 1) return byNewline;
+      return text.split(",").map(s => s.trim()).filter(Boolean);
+    }
+
+    function setStatus(msg) {
+      $("#saveStatus").textContent = msg;
+      clearTimeout(setStatus._timer);
+      setStatus._timer = setTimeout(() => {
+        $("#saveStatus").textContent = "";
+      }, 1600);
+    }
+
+    function renderList(items, selector) {
+      const ul = $(selector);
+      ul.innerHTML = "";
+      items.forEach((txt) => {
+        const li = document.createElement("li");
+        li.textContent = txt;
+        ul.appendChild(li);
+      });
+    }
+
+    function getWorkData() {
+      return $$("#work-form .work-item").map(item => ({
+        title: item.querySelector(".w-title").value.trim(),
+        dates: item.querySelector(".w-dates").value.trim(),
+        bullets: lines(item.querySelector(".w-bullets").value)
+      }));
+    }
+
+    function getEducationData() {
+      return $$("#education-form .work-item").map(item => ({
+        degree: item.querySelector(".e-degree").value.trim(),
+        school: item.querySelector(".e-school").value.trim(),
+        dates: item.querySelector(".e-dates").value.trim()
+      }));
+    }
+
+    function getCertificateData() {
+      return $$("#certificates-form .work-item").map(item => ({
+        name: item.querySelector(".c-name").value.trim(),
+        meta: item.querySelector(".c-meta").value.trim()
+      }));
+    }
+
+    function getReferenceData() {
+      return $$("#references-form .work-item").map(item => ({
+        name: item.querySelector(".r-name").value.trim(),
+        role: item.querySelector(".r-role").value.trim(),
+        contact: item.querySelector(".r-contact").value.trim()
+      }));
+    }
+
+    function renderWorkPreview() {
+      const pv = $("#pv-work");
+      pv.innerHTML = "";
+
+      getWorkData().forEach(({ title, dates, bullets }) => {
+        const wrap = document.createElement("div");
+        wrap.className = "job";
+
+        const h3 = document.createElement("h3");
+        h3.textContent = title || "Job Title – Employer, Location";
+
+        const span = document.createElement("span");
+        span.textContent = dates || "Month YYYY - Month YYYY / Present";
+
+        const ul = document.createElement("ul");
+        bullets.forEach(b => {
+          const li = document.createElement("li");
+          li.textContent = b;
+          ul.appendChild(li);
+        });
+
+        wrap.appendChild(h3);
+        wrap.appendChild(span);
+        wrap.appendChild(ul);
+        pv.appendChild(wrap);
+      });
+    }
+
+    function renderEducationPreview() {
+      const box = $("#pv-education");
+      box.innerHTML = "";
+
+      getEducationData().forEach(item => {
+        const p = document.createElement("p");
+        p.textContent = [item.degree, item.school, item.dates].filter(Boolean).join(" – ");
+        box.appendChild(p);
+      });
+    }
+
+    function renderCertificatesPreview() {
+      const ul = $("#pv-certificates");
+      ul.innerHTML = "";
+
+      getCertificateData().forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = [item.name, item.meta].filter(Boolean).join(" – ");
+        ul.appendChild(li);
+      });
+    }
+
+    function renderReferencesPreview() {
+      const ul = $("#pv-references");
+      ul.innerHTML = "";
+
+      getReferenceData().forEach(item => {
+        const li = document.createElement("li");
+        li.textContent = [item.name, item.role, item.contact].filter(Boolean).join(" – ");
+        ul.appendChild(li);
+      });
+    }
+
+    function render() {
+      const name = $("#name").value.trim() || "Your Full Name";
+      const email = $("#email").value.trim() || "you@example.com";
+      const phone = $("#phone").value.trim() || "+977-98XXXXXXXX";
+      const location = $("#location").value.trim() || "Kathmandu, Nepal";
+
+      $("#pv-name").textContent = name;
+      $("#pv-address").textContent = `${email} | ${phone} | ${location}`;
+      $("#pv-statement").textContent = $("#statement").value.trim();
+
+      $("#pv-heading-statement").textContent = $("#headingStatement").value.trim() || "Personal Statement";
+      $("#pv-heading-work").textContent = $("#headingWork").value.trim() || "Work History";
+      $("#pv-heading-education").textContent = $("#headingEducation").value.trim() || "Education";
+      $("#pv-heading-skills").textContent = $("#headingSkills").value.trim() || "Skills";
+      $("#pv-heading-certificates").textContent = $("#headingCertificates").value.trim() || "Certificates";
+      $("#pv-heading-references").textContent = $("#headingReferences").value.trim() || "References";
+
+      renderList(csvOrLines($("#skills").value), "#pv-skills");
+      renderWorkPreview();
+      renderEducationPreview();
+      renderCertificatesPreview();
+      renderReferencesPreview();
+    }
+
+    function saveState() {
+      const data = {
+        name: $("#name").value,
+        email: $("#email").value,
+        phone: $("#phone").value,
+        location: $("#location").value,
+        statement: $("#statement").value,
+        skills: $("#skills").value,
+
+        headingStatement: $("#headingStatement").value,
+        headingWork: $("#headingWork").value,
+        headingEducation: $("#headingEducation").value,
+        headingSkills: $("#headingSkills").value,
+        headingCertificates: $("#headingCertificates").value,
+        headingReferences: $("#headingReferences").value,
+
+        work: getWorkData(),
+        education: getEducationData(),
+        certificates: getCertificateData(),
+        references: getReferenceData()
+      };
+
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      setStatus("Saved locally");
+    }
+
+    function loadState() {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return defaults;
+
+      try {
+        const parsed = JSON.parse(raw);
+        return {
+          ...defaults,
+          ...parsed,
+          work: Array.isArray(parsed.work) && parsed.work.length ? parsed.work : defaults.work,
+          education: Array.isArray(parsed.education) && parsed.education.length ? parsed.education : defaults.education,
+          certificates: Array.isArray(parsed.certificates) && parsed.certificates.length ? parsed.certificates : defaults.certificates,
+          references: Array.isArray(parsed.references) && parsed.references.length ? parsed.references : defaults.references
+        };
+      } catch {
+        return defaults;
+      }
+    }
+
+    function fillForm(data) {
+      $("#name").value = data.name;
+      $("#email").value = data.email;
+      $("#phone").value = data.phone;
+      $("#location").value = data.location;
+      $("#statement").value = data.statement;
+      $("#skills").value = data.skills;
+
+      $("#headingStatement").value = data.headingStatement || "Personal Statement";
+      $("#headingWork").value = data.headingWork || "Work History";
+      $("#headingEducation").value = data.headingEducation || "Education";
+      $("#headingSkills").value = data.headingSkills || "Skills";
+      $("#headingCertificates").value = data.headingCertificates || "Certificates";
+      $("#headingReferences").value = data.headingReferences || "References";
+
+      $("#work-form").innerHTML = "";
+      (data.work || []).forEach(addWork);
+
+      $("#education-form").innerHTML = "";
+      (data.education || []).forEach(addEducation);
+
+      $("#certificates-form").innerHTML = "";
+      (data.certificates || []).forEach(addCertificate);
+
+      $("#references-form").innerHTML = "";
+      (data.references || []).forEach(addReference);
+    }
+
+    function addWork(prefill = null) {
+      const tpl = document.getElementById("work-item-template").content.cloneNode(true);
+
+      if (prefill) {
+        tpl.querySelector(".w-title").value = prefill.title || "";
+        tpl.querySelector(".w-dates").value = prefill.dates || "";
+        tpl.querySelector(".w-bullets").value = (prefill.bullets || []).join("\n");
+      }
+
+      $("#work-form").appendChild(tpl);
+      render();
+      saveState();
+    }
+
+    function addEducation(prefill = null) {
+      const tpl = document.getElementById("education-item-template").content.cloneNode(true);
+
+      if (prefill) {
+        tpl.querySelector(".e-degree").value = prefill.degree || "";
+        tpl.querySelector(".e-school").value = prefill.school || "";
+        tpl.querySelector(".e-dates").value = prefill.dates || "";
+      }
+
+      $("#education-form").appendChild(tpl);
+      render();
+      saveState();
+    }
+
+    function addCertificate(prefill = null) {
+      const tpl = document.getElementById("certificate-item-template").content.cloneNode(true);
+
+      if (prefill) {
+        tpl.querySelector(".c-name").value = prefill.name || "";
+        tpl.querySelector(".c-meta").value = prefill.meta || "";
+      }
+
+      $("#certificates-form").appendChild(tpl);
+      render();
+      saveState();
+    }
+
+    function addReference(prefill = null) {
+      const tpl = document.getElementById("reference-item-template").content.cloneNode(true);
+
+      if (prefill) {
+        tpl.querySelector(".r-name").value = prefill.name || "";
+        tpl.querySelector(".r-role").value = prefill.role || "";
+        tpl.querySelector(".r-contact").value = prefill.contact || "";
+      }
+
+      $("#references-form").appendChild(tpl);
+      render();
+      saveState();
+    }
+
+    function resetAll() {
+      if (!confirm("Reset the CV builder to its default example content?")) return;
+      localStorage.removeItem(STORAGE_KEY);
+      fillForm(defaults);
+      render();
+      setStatus("Reset to defaults");
+    }
+
+    function suggestFileName() {
+      const name = ($("#name").value || "Firstname-Lastname")
+        .trim()
+        .replace(/\s+/g, "-")
+        .replace(/[^a-zA-Z0-9-]/g, "");
+      alert(`${name || "Firstname-Lastname"}-CV-Nepal.pdf`);
+    }
+
+    function handleInput() {
+      render();
+      saveState();
+    }
+
+    document.addEventListener("click", (e) => {
+      if (e.target.matches(".remove-work-btn")) {
+        e.target.closest(".work-item").remove();
+        render();
+        saveState();
+      }
+
+      if (e.target.matches(".remove-education-btn")) {
+        e.target.closest(".work-item").remove();
+        render();
+        saveState();
+      }
+
+      if (e.target.matches(".remove-certificate-btn")) {
+        e.target.closest(".work-item").remove();
+        render();
+        saveState();
+      }
+
+      if (e.target.matches(".remove-reference-btn")) {
+        e.target.closest(".work-item").remove();
+        render();
+        saveState();
+      }
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const data = loadState();
+      fillForm(data);
+      render();
+
+      [
+        "#name", "#email", "#phone", "#location",
+        "#statement", "#skills",
+        "#headingStatement", "#headingWork", "#headingEducation",
+        "#headingSkills", "#headingCertificates", "#headingReferences"
+      ].forEach(selector => {
+        $(selector).addEventListener("input", handleInput);
+      });
+
+      $("#work-form").addEventListener("input", handleInput);
+      $("#education-form").addEventListener("input", handleInput);
+      $("#certificates-form").addEventListener("input", handleInput);
+      $("#references-form").addEventListener("input", handleInput);
+
+      $("#addWorkBtn").addEventListener("click", () => addWork({
+        title: "Job title – Employer, Location",
+        dates: "Month YYYY - Present",
+        bullets: [
+          "Describe a key responsibility",
+          "Add an achievement with a number if possible",
+          "Mention a tool, system, or office task"
+        ]
+      }));
+
+      $("#addEducationBtn").addEventListener("click", () => addEducation({
+        degree: "Qualification / Degree",
+        school: "Institution, City",
+        dates: "Month YYYY - Month YYYY"
+      }));
+
+      $("#addCertificateBtn").addEventListener("click", () => addCertificate({
+        name: "Certificate name",
+        meta: "Year / Issuer"
+      }));
+
+      $("#addReferenceBtn").addEventListener("click", () => addReference({
+        name: "Referee name",
+        role: "Role / Company",
+        contact: "Email or phone"
+      }));
+
+      $("#resetBtn").addEventListener("click", resetAll);
+      $("#printTopBtn").addEventListener("click", () => window.print());
+      $("#printBottomBtn").addEventListener("click", () => window.print());
+      $("#downloadNameBtn").addEventListener("click", suggestFileName);
+    });
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Free CV Builder for Nepal",
+    "applicationCategory": "BusinessApplication",
+    "operatingSystem": "Web",
+    "url": "https://nirajan.info.np/cv_builder.html",
+    "description": "Free online CV builder for jobs in Nepal. Create a professional CV with live preview and download as PDF.",
+    "keywords": "CV builder Nepal, free CV builder Nepal, CV format Nepal, online CV maker Nepal, job CV Nepal, administrative assistant CV Nepal, office assistant CV Nepal, receptionist CV Nepal",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "NPR"
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Nepal"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "nirajan.info.np",
+      "url": "https://nirajan.info.np"
+    }
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"FAQPage",
+    "mainEntity":[
+      {
+        "@type":"Question",
+        "name":"Is this CV builder free for users in Nepal?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. You can create your CV online for free and save it as a PDF for job applications in Nepal."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I use this CV builder for administrative assistant and office assistant jobs in Nepal?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. This CV builder is suitable for administrative assistant, office assistant, receptionist, front desk, and admin officer roles in Nepal."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Is this CV format suitable for freshers in Nepal?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. Freshers, students, and graduates in Nepal can use this builder to create a simple and professional CV."
+        }
+      },
+      {
+        "@type":"Question",
+        "name":"Can I download my CV as a PDF?",
+        "acceptedAnswer":{
+          "@type":"Answer",
+          "text":"Yes. You can use the print or save option to download your CV as a PDF."
+        }
+      }
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"HowTo",
+    "name":"Create a CV online for jobs in Nepal and export to PDF",
+    "totalTime":"PT5M",
+    "step":[
+      {"@type":"HowToStep","name":"Enter details","text":"Fill in your name, email, phone number, and location in Nepal."},
+      {"@type":"HowToStep","name":"Write profile summary","text":"Add a short personal statement that highlights your strengths and job target."},
+      {"@type":"HowToStep","name":"Add experience and education","text":"Include work history, education, skills, certificates, and references."},
+      {"@type":"HowToStep","name":"Export PDF","text":"Click Save / Print PDF and save your CV for job applications in Nepal."}
+    ]
+  }
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {
+        "@type":"ListItem",
+        "position":1,
+        "name":"Home",
+        "item":"https://nirajan.info.np/"
+      },
+      {
+        "@type":"ListItem",
+        "position":2,
+        "name":"CV Builder",
+        "item":"https://nirajan.info.np/cv_builder.html"
+      }
+    ]
+  }
+  </script>
+
+  <noscript>
+    <p>This page lets you build a CV for jobs in Nepal and print it to PDF. Enable JavaScript for live preview.</p>
+  </noscript>
+</body>
+</html>
