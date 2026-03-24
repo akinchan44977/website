@@ -33,17 +33,199 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
-        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f8fafc; }
-        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(10px); }
-        .hero-gradient { background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); }
-        .logo-text { font-size: 1.5rem; font-weight: 800; color: #2563eb; }
-        .input-box { @apply w-full px-4 py-3 rounded-xl border-2 border-slate-100 focus:border-blue-500 focus:outline-none transition-all font-semibold text-slate-700 bg-white; }
-        #qrcode img { margin: 0 auto; padding: 12px; background: white; border-radius: 1rem; }
-        @media print { 
-            .no-print { display: none !important; } 
-            body { background: white; }
-            #print-card { border: none !important; shadow: none !important; width: 100% !important; margin: 0 !important; }
+        body { 
+            font-family: 'Plus Jakarta Sans', sans-serif; 
+            background-color: #f8fafc; 
+        }
+
+        .glass { 
+            background: rgba(255, 255, 255, 0.8); 
+            backdrop-filter: blur(10px); 
+        }
+
+        .hero-gradient { 
+            background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%); 
+        }
+
+        .logo-text { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: #2563eb; 
+        }
+
+        .input-box {
+            width: 100%;
+            padding: 0.9rem 1rem;
+            border-radius: 1rem;
+            border: 2px solid #f1f5f9;
+            transition: all 0.2s ease;
+            font-weight: 600;
+            color: #334155;
+            background: white;
+        }
+
+        .input-box:focus {
+            border-color: #3b82f6;
+            outline: none;
+        }
+
+        .a4-sheet {
+            width: 210mm;
+            min-height: 297mm;
+            margin: 0 auto;
+            background: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+            border: 1px solid #e2e8f0;
+            padding: 12mm;
+        }
+
+        .qr-grid {
+            display: grid;
+            gap: 10mm;
+            width: 100%;
+        }
+
+        .qr-grid.cols-1 { grid-template-columns: 1fr; }
+        .qr-grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+        .wifi-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 20px;
+            background: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 12px;
+            text-align: center;
+            min-height: 120mm;
+            break-inside: avoid;
+            page-break-inside: avoid;
+        }
+
+        .wifi-card.compact {
+            min-height: 82mm;
+            padding: 10px;
+        }
+
+        .wifi-card .brand {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            color: #2563eb;
+            margin-bottom: 4px;
+        }
+
+        .wifi-card h2 {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0f172a;
+            margin-bottom: 12px;
+        }
+
+        .wifi-card.compact h2 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+
+        .qr-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 220px;
+            margin-bottom: 12px;
+        }
+
+        .wifi-card.compact .qr-box {
+            min-height: 150px;
+            margin-bottom: 8px;
+        }
+
+        .qr-box img {
+            background: white;
+            border-radius: 16px;
+            padding: 8px;
+            margin: 0 auto;
+        }
+
+        .qr-placeholder {
+            width: 220px;
+            height: 220px;
+            background: #f8fafc;
+            border: 4px dashed #e2e8f0;
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #cbd5e1;
+        }
+
+        .wifi-card.compact .qr-placeholder {
+            width: 150px;
+            height: 150px;
+            border-radius: 18px;
+        }
+
+        .ssid {
+            font-size: 22px;
+            font-weight: 900;
+            color: #0f172a;
+            word-break: break-word;
+            line-height: 1.2;
+        }
+
+        .wifi-card.compact .ssid {
+            font-size: 16px;
+        }
+
+        .scan-text {
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: #94a3b8;
+            margin-top: 6px;
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 10mm;
+        }
+
+        @media print {
+            .no-print { display: none !important; }
             .print-hide { display: none !important; }
+
+            html, body {
+                width: 210mm;
+                min-height: 297mm;
+                background: white !important;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+            .a4-sheet {
+                width: 100%;
+                min-height: auto;
+                margin: 0;
+                padding: 0;
+                border: none !important;
+                box-shadow: none !important;
+                border-radius: 0 !important;
+            }
+
+            .qr-grid {
+                gap: 8mm;
+            }
+
+            .wifi-card {
+                border: 1px solid #cbd5e1;
+                border-radius: 14px;
+            }
         }
     </style>
 </head>
@@ -70,10 +252,10 @@
         </div>
     </header>
 
-    <main class="max-w-6xl mx-auto px-6 py-12">
+    <main class="max-w-7xl mx-auto px-6 py-12">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start mb-20">
             
-            <div class="lg:col-span-5 bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 no-print">
+            <div class="lg:col-span-4 bg-white p-6 md:p-8 rounded-[2rem] shadow-sm border border-slate-100 no-print">
                 <h2 class="text-lg font-bold text-slate-800 mb-6 flex items-center">
                     <span class="w-8 h-8 bg-blue-100 text-blue-600 rounded-lg flex items-center justify-center mr-3 text-sm">01</span>
                     Network Details
@@ -84,10 +266,12 @@
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Network Name (SSID)</label>
                         <input type="text" id="ssid" placeholder="e.g. Worldlink_WiFi" class="input-box" oninput="generateQR()">
                     </div>
+
                     <div>
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Password (Visible)</label>
                         <input type="text" id="password" placeholder="WiFi Password" class="input-box" oninput="generateQR()">
                     </div>
+
                     <div>
                         <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Security</label>
                         <select id="encryption" class="input-box appearance-none" onchange="generateQR()">
@@ -96,29 +280,27 @@
                             <option value="nopass">None (Open)</option>
                         </select>
                     </div>
+
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-400 uppercase tracking-wider mb-2">Number of QR Cards</label>
+                        <select id="copies" class="input-box appearance-none" onchange="generateQR()">
+                            <option value="1">1 Card</option>
+                            <option value="2">2 Cards</option>
+                            <option value="4">4 Cards</option>
+                            <option value="6">6 Cards</option>
+                            <option value="8">8 Cards</option>
+                        </select>
+                    </div>
+
                     <button onclick="window.print()" class="w-full py-4 bg-slate-900 text-white rounded-2xl font-bold hover:bg-slate-800 transition shadow-lg flex items-center justify-center gap-2">
-                        Print QR Card
+                        Print A4 QR Sheet
                     </button>
                 </div>
             </div>
 
-            <div class="lg:col-span-7 flex flex-col items-center">
-                <div id="print-card" class="bg-white p-10 md:p-16 rounded-[3rem] shadow-xl border border-slate-100 text-center w-full max-w-sm">
-                    <div class="mb-8 print-hide">
-                        <div class="logo-text text-sm tracking-widest mb-1">NIRAJAN.TOOLS</div>
-                        <h2 class="text-2xl font-black text-slate-900">WiFi Access</h2>
-                    </div>
-
-                    <div id="qrcode" class="flex justify-center mb-6 min-h-[256px]">
-                        <div class="w-64 h-64 bg-slate-50 border-4 border-dashed border-slate-100 rounded-[2rem] flex items-center justify-center text-slate-200">
-                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round"/></svg>
-                        </div>
-                    </div>
-
-                    <div id="info-display" class="hidden">
-                        <p id="display-ssid" class="text-2xl font-black text-slate-900"></p>
-                        <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-2">Scan to Connect</p>
-                    </div>
+            <div class="lg:col-span-8">
+                <div id="print-sheet" class="a4-sheet">
+                    <div id="cards-grid" class="qr-grid cols-1"></div>
                 </div>
             </div>
         </div>
@@ -148,32 +330,96 @@
     </footer>
 
     <script>
+        function escapeWifiValue(value) {
+            return value
+                .replace(/\\/g, '\\\\')
+                .replace(/;/g, '\\;')
+                .replace(/,/g, '\\,')
+                .replace(/:/g, '\\:')
+                .replace(/"/g, '\\"');
+        }
+
+        function getLayoutSettings(count) {
+            if (count === 1) {
+                return { cols: 1, compact: false, qrSize: 240 };
+            }
+            if (count === 2) {
+                return { cols: 2, compact: false, qrSize: 190 };
+            }
+            if (count === 4) {
+                return { cols: 2, compact: false, qrSize: 170 };
+            }
+            if (count === 6) {
+                return { cols: 2, compact: true, qrSize: 135 };
+            }
+            return { cols: 2, compact: true, qrSize: 120 }; // 8
+        }
+
+        function createPlaceholder(compact) {
+            return `
+                <div class="qr-placeholder">
+                    <svg class="${compact ? 'w-12 h-12' : 'w-16 h-16'}" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
+            `;
+        }
+
         function generateQR() {
-            const ssid = document.getElementById('ssid').value;
+            const ssid = document.getElementById('ssid').value.trim();
             const password = document.getElementById('password').value;
             const encryption = document.getElementById('encryption').value;
-            const qrContainer = document.getElementById('qrcode');
-            
-            if(!ssid) {
-                qrContainer.innerHTML = '<div class="w-64 h-64 bg-slate-50 border-4 border-dashed border-slate-100 rounded-[2rem] flex items-center justify-center text-slate-200"><svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M12 4v16m8-8H4" stroke-width="2" stroke-linecap="round"/></svg></div>';
-                document.getElementById('info-display').classList.add('hidden');
-                return;
+            const copies = parseInt(document.getElementById('copies').value, 10);
+
+            const grid = document.getElementById('cards-grid');
+            const layout = getLayoutSettings(copies);
+
+            grid.className = `qr-grid cols-${layout.cols}`;
+            grid.innerHTML = "";
+
+            for (let i = 0; i < copies; i++) {
+                const card = document.createElement('div');
+                card.className = `wifi-card ${layout.compact ? 'compact' : ''}`;
+
+                card.innerHTML = `
+                    <div class="brand print-hide">NIRAJAN.TOOLS</div>
+                    <h2>WiFi Access</h2>
+                    <div id="qr-${i}" class="qr-box">
+                        ${!ssid ? createPlaceholder(layout.compact) : ""}
+                    </div>
+                    <div>
+                        <div class="ssid">${ssid || 'Your WiFi Name'}</div>
+                        <div class="scan-text">Scan to Connect</div>
+                    </div>
+                `;
+
+                grid.appendChild(card);
             }
 
-            qrContainer.innerHTML = "";
-            document.getElementById('info-display').classList.remove('hidden');
-            document.getElementById('display-ssid').innerText = ssid;
+            if (!ssid) return;
 
-            const qrString = `WIFI:S:${ssid};T:${encryption};P:${password};;`;
-            new QRCode(qrContainer, {
-                text: qrString,
-                width: 256,
-                height: 256,
-                colorDark : "#000000",
-                colorLight : "#ffffff",
-                correctLevel : QRCode.CorrectLevel.H
-            });
+            const safeSSID = escapeWifiValue(ssid);
+            const safePassword = escapeWifiValue(password);
+            const qrString = encryption === "nopass"
+                ? `WIFI:S:${safeSSID};T:nopass;;`
+                : `WIFI:S:${safeSSID};T:${encryption};P:${safePassword};;`;
+
+            for (let i = 0; i < copies; i++) {
+                const qrContainer = document.getElementById(`qr-${i}`);
+                qrContainer.innerHTML = "";
+
+                new QRCode(qrContainer, {
+                    text: qrString,
+                    width: layout.qrSize,
+                    height: layout.qrSize,
+                    colorDark: "#000000",
+                    colorLight: "#ffffff",
+                    correctLevel: QRCode.CorrectLevel.H
+                });
+            }
         }
+
+        window.addEventListener('load', generateQR);
     </script>
 </body>
 </html>
