@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>NIRAJAN.TOOLS | Word & Character Counter</title>
+  <meta name="description" content="Free online word and character counter with reading time, speaking time, sentence count, paragraph count, keyword density, and live text insights. Mobile responsive and privacy-first.">
+  <meta name="keywords" content="word counter, character counter, text analyzer, reading time calculator, writing tool, mobile responsive word count">
+  <meta name="author" content="Nirajan">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="NIRAJAN.TOOLS | Word & Character Counter">
+  <meta property="og:description" content="Count words, characters, sentences, paragraphs, reading time, and more with a clean responsive text analysis tool.">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="NIRAJAN.TOOLS | Word & Character Counter">
+  <meta property="twitter:description" content="Fast, private, and responsive word and character counter for writers, students, and professionals.">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #f8fafc;
+      scroll-behavior: smooth;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+    }
+    .hero-gradient {
+      background: linear-gradient(135deg, #f0f7ff 0%, #ffffff 100%);
+    }
+    .logo-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      color: #2563eb;
+    }
+    .stat-card {
+      background: white;
+      border: 1px solid rgb(226 232 240);
+      border-radius: 1.5rem;
+      padding: 1rem;
+      transition: all 0.25s ease;
+      box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+    }
+    .stat-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(37, 99, 235, 0.08);
+    }
+    .metric-value {
+      font-size: 1.7rem;
+      line-height: 1.1;
+      font-weight: 800;
+      color: #0f172a;
+      word-break: break-word;
+    }
+    .metric-label {
+      font-size: 0.8rem;
+      color: #64748b;
+      margin-top: 0.4rem;
+      font-weight: 600;
+    }
+    textarea {
+      resize: vertical;
+    }
+    .progress-bar {
+      transition: width 0.35s ease;
+    }
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.4rem 0.7rem;
+      border-radius: 9999px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      background: #eff6ff;
+      color: #2563eb;
+      border: 1px solid #dbeafe;
+    }
+  </style>
+
+  <style id="site-crosslinks-style">
+    .site-crosslinks{max-width:1120px;margin:0 auto;padding:0 24px 64px;}
+    .site-crosslinks.no-print{display:block;}
+    .site-crosslinks__head{margin-bottom:20px;}
+    .site-crosslinks__title{font-size:1.5rem;font-weight:800;color:#0f172a;margin:0 0 6px;}
+    .site-crosslinks__sub{color:#64748b;font-size:.95rem;margin:0;}
+    .site-crosslinks__grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+    .site-crosslinks__card{display:block;background:#fff;border:1px solid #e2e8f0;border-radius:22px;padding:18px;text-decoration:none;box-shadow:0 1px 2px rgba(15,23,42,.04);transition:transform .2s ease, box-shadow .2s ease,border-color .2s ease;}
+    .site-crosslinks__card:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(37,99,235,.08);border-color:#bfdbfe;}
+    .site-crosslinks__name{display:block;font-size:1rem;font-weight:800;color:#0f172a;margin-bottom:6px;}
+    .site-crosslinks__desc{display:block;color:#64748b;font-size:.85rem;line-height:1.55;}
+    .site-crosslinks__cta{display:inline-block;margin-top:12px;color:#2563eb;font-weight:700;font-size:.8rem;}
+    .site-topnav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.9);backdrop-filter:blur(10px);border-bottom:1px solid #e5e7eb;padding:14px 20px;}
+    .site-topnav__inner{max-width:1120px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+    .site-topnav__brand{font-size:1.4rem;font-weight:800;color:#2563eb;text-decoration:none;}
+    .site-topnav__links{display:flex;flex-wrap:wrap;gap:16px;font-size:.9rem;font-weight:600;}
+    .site-topnav__links a{text-decoration:none;color:#475569;}
+    .site-topnav__links a:hover{color:#2563eb;}
+    @media (max-width:640px){.site-crosslinks{padding:0 16px 48px}.site-topnav{padding:12px 16px}.site-topnav__links{gap:10px;font-size:.82rem}}
+    @media print{.site-crosslinks.no-print,.site-topnav.no-print{display:none !important;}}
+  </style>
+
+</head>
+<body>
+  <nav class="sticky top-0 z-50 glass border-b border-gray-100 py-4 px-4 sm:px-6 flex justify-between items-center">
+    <a href="index.html" class="logo-text">NIRAJAN.TOOLS</a>
+    <div class="flex items-center gap-3 sm:gap-6 text-sm font-semibold text-slate-600">
+      <a href="#tool" class="hover:text-blue-600">Tool</a>
+      <a href="#features" class="hover:text-blue-600 hidden sm:block">Features</a>
+      <a href="index.html" class="hidden md:inline-flex px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition">All Tools</a>
+    </div>
+  </nav>
+
+  <header class="hero-gradient border-b border-slate-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12 md:py-20 grid lg:grid-cols-2 gap-10 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-blue-50 text-blue-600 rounded-full text-[10px] font-bold uppercase tracking-wider mb-4">
+          <span>✍️</span> Writing Utility
+        </div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4 leading-tight">
+          Word & <span class="text-blue-600">Character Counter</span>
+        </h1>
+        <p class="text-slate-600 text-base md:text-lg leading-relaxed mb-8 max-w-xl">
+          Instantly count words, characters, sentences, paragraphs, reading time, and speaking time. Clean, privacy-first, and fully mobile responsive for writers, students, creators, and professionals.
+        </p>
+        <div class="flex flex-wrap gap-3">
+          <a href="#tool" class="px-6 py-3 bg-slate-900 text-white rounded-xl font-bold hover:bg-slate-800 transition shadow-lg inline-flex items-center text-sm">
+            Start Counting
+            <svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M19 14l-7 7m0 0l-7-7m7 7V3" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </a>
+          <span class="chip">Private</span>
+          <span class="chip">Live Analysis</span>
+          <span class="chip">Mobile Friendly</span>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4">
+        <div class="p-5 bg-white/70 rounded-[1.75rem] border border-white shadow-sm">
+          <div class="text-blue-600 font-extrabold text-2xl">Live</div>
+          <div class="text-slate-500 text-sm">Auto-updating metrics</div>
+        </div>
+        <div class="p-5 bg-white/70 rounded-[1.75rem] border border-white shadow-sm">
+          <div class="text-emerald-600 font-extrabold text-2xl">100%</div>
+          <div class="text-slate-500 text-sm">Browser-based privacy</div>
+        </div>
+        <div class="p-5 bg-white/70 rounded-[1.75rem] border border-white shadow-sm col-span-2">
+          <div class="text-slate-900 font-bold mb-2">Helpful extras included</div>
+          <p class="text-slate-500 text-sm">Reading time, speaking time, longest word, average word length, keyword density, and goal tracking.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="tool" class="max-w-6xl mx-auto px-4 sm:px-6 py-10 md:py-16">
+    <div class="grid xl:grid-cols-[1.5fr_0.9fr] gap-6 lg:gap-8 items-start">
+      <section class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-4 sm:p-6 md:p-8">
+        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-5">
+          <div>
+            <h2 class="text-2xl font-bold text-slate-900">Paste or type your text</h2>
+            <p class="text-slate-500 text-sm mt-1">Your text stays on your device and is analyzed instantly.</p>
+          </div>
+          <div class="flex flex-wrap gap-2">
+            <button id="sampleBtn" class="px-4 py-2 rounded-xl bg-blue-50 text-blue-700 font-bold text-sm hover:bg-blue-100 transition">Try Sample</button>
+            <button id="copyBtn" class="px-4 py-2 rounded-xl bg-slate-100 text-slate-700 font-bold text-sm hover:bg-slate-200 transition">Copy Text</button>
+            <button id="clearBtn" class="px-4 py-2 rounded-xl bg-rose-50 text-rose-600 font-bold text-sm hover:bg-rose-100 transition">Clear</button>
+          </div>
+        </div>
+
+        <label for="textInput" class="sr-only">Text input</label>
+        <textarea
+          id="textInput"
+          class="w-full min-h-[280px] sm:min-h-[360px] rounded-[1.5rem] border border-slate-200 bg-slate-50 px-4 py-4 sm:px-5 sm:py-5 text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-4 focus:ring-blue-100 focus:border-blue-400 transition text-base"
+          placeholder="Start typing, paste your article, essay, caption, speech, or notes here..."
+        ></textarea>
+
+        <div class="mt-5 grid sm:grid-cols-2 gap-4">
+          <div>
+            <div class="flex items-center justify-between text-sm font-semibold text-slate-600 mb-2">
+              <span>Word Goal</span>
+              <span id="goalLabel">0 / 1000</span>
+            </div>
+            <input id="goalInput" type="range" min="100" max="5000" step="100" value="1000" class="w-full accent-blue-600">
+            <div class="mt-3 h-3 bg-slate-100 rounded-full overflow-hidden">
+              <div id="goalProgress" class="progress-bar h-full bg-blue-600 rounded-full" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="bg-slate-50 border border-slate-200 rounded-[1.5rem] p-4">
+            <div class="text-sm font-bold text-slate-800 mb-2">Writing Tips</div>
+            <ul class="text-sm text-slate-600 space-y-1 list-disc pl-5">
+              <li>Keep sentences short for easier readability.</li>
+              <li>Break large text into smaller paragraphs.</li>
+              <li>Use the keyword panel to avoid overusing repeated words.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <aside class="space-y-6">
+        <section class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-4 sm:p-6">
+          <div class="flex items-center justify-between mb-4">
+            <h3 class="text-lg font-bold text-slate-900">Live Stats</h3>
+            <span id="statusBadge" class="chip">Ready</span>
+          </div>
+
+          <div class="grid grid-cols-2 gap-3 sm:gap-4">
+            <div class="stat-card">
+              <div id="wordCount" class="metric-value">0</div>
+              <div class="metric-label">Words</div>
+            </div>
+            <div class="stat-card">
+              <div id="charCount" class="metric-value">0</div>
+              <div class="metric-label">Characters</div>
+            </div>
+            <div class="stat-card">
+              <div id="charNoSpaceCount" class="metric-value">0</div>
+              <div class="metric-label">Characters (No Spaces)</div>
+            </div>
+            <div class="stat-card">
+              <div id="sentenceCount" class="metric-value">0</div>
+              <div class="metric-label">Sentences</div>
+            </div>
+            <div class="stat-card">
+              <div id="paragraphCount" class="metric-value">0</div>
+              <div class="metric-label">Paragraphs</div>
+            </div>
+            <div class="stat-card">
+              <div id="lineCount" class="metric-value">0</div>
+              <div class="metric-label">Lines</div>
+            </div>
+            <div class="stat-card">
+              <div id="readTime" class="metric-value">0 min</div>
+              <div class="metric-label">Reading Time</div>
+            </div>
+            <div class="stat-card">
+              <div id="speakTime" class="metric-value">0 min</div>
+              <div class="metric-label">Speaking Time</div>
+            </div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-4 sm:p-6">
+          <h3 class="text-lg font-bold text-slate-900 mb-4">Text Insights</h3>
+          <div class="space-y-3 text-sm">
+            <div class="flex justify-between gap-3"><span class="text-slate-500">Average word length</span><strong id="avgWordLength" class="text-slate-900">0</strong></div>
+            <div class="flex justify-between gap-3"><span class="text-slate-500">Longest word</span><strong id="longestWord" class="text-slate-900 text-right break-all">—</strong></div>
+            <div class="flex justify-between gap-3"><span class="text-slate-500">Estimated pages</span><strong id="pageEstimate" class="text-slate-900">0</strong></div>
+            <div class="flex justify-between gap-3"><span class="text-slate-500">Estimated social caption fit</span><strong id="captionFit" class="text-slate-900">Yes</strong></div>
+          </div>
+        </section>
+
+        <section class="bg-white rounded-[2rem] border border-slate-200 shadow-sm p-4 sm:p-6">
+          <div class="flex items-center justify-between mb-4 gap-3">
+            <h3 class="text-lg font-bold text-slate-900">Top Keywords</h3>
+            <span class="text-xs text-slate-500">Common filler words removed</span>
+          </div>
+          <div id="keywords" class="flex flex-wrap gap-2">
+            <span class="text-sm text-slate-400">No keywords yet.</span>
+          </div>
+        </section>
+      </aside>
+    </div>
+
+    <section id="features" class="mt-10 md:mt-14 grid md:grid-cols-3 gap-6">
+      <div class="bg-white rounded-[2rem] border border-slate-200 p-6 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 text-xl">⚡</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Instant Analysis</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Counts update as you type, making it useful for essays, blog posts, speeches, captions, and assignments.</p>
+      </div>
+      <div class="bg-white rounded-[2rem] border border-slate-200 p-6 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 text-xl">📱</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Mobile Responsive</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Built to work smoothly on phones, tablets, laptops, and desktops with touch-friendly controls.</p>
+      </div>
+      <div class="bg-white rounded-[2rem] border border-slate-200 p-6 shadow-sm">
+        <div class="w-12 h-12 rounded-xl bg-purple-100 text-purple-600 flex items-center justify-center mb-4 text-xl">🔒</div>
+        <h3 class="text-lg font-bold text-slate-900 mb-2">Privacy First</h3>
+        <p class="text-slate-500 text-sm leading-relaxed">Everything runs in the browser, so your writing is not sent anywhere just to get basic text metrics.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-slate-900 text-slate-400 py-12 px-6 text-center">
+    <div class="logo-text mb-4 text-white">NIRAJAN.TOOLS</div>
+    <p class="text-xs opacity-70">Word & Character Counter • Mobile Responsive • Privacy Friendly</p>
+    <p class="text-xs opacity-50 mt-2">&copy; 2026 NIRAJAN.TOOLS | Built for modern writing workflows</p>
+  </footer>
+
+  <script>
+    const textInput = document.getElementById('textInput');
+    const sampleBtn = document.getElementById('sampleBtn');
+    const copyBtn = document.getElementById('copyBtn');
+    const clearBtn = document.getElementById('clearBtn');
+    const goalInput = document.getElementById('goalInput');
+    const goalLabel = document.getElementById('goalLabel');
+    const goalProgress = document.getElementById('goalProgress');
+    const statusBadge = document.getElementById('statusBadge');
+    const keywordsContainer = document.getElementById('keywords');
+
+    const elements = {
+      wordCount: document.getElementById('wordCount'),
+      charCount: document.getElementById('charCount'),
+      charNoSpaceCount: document.getElementById('charNoSpaceCount'),
+      sentenceCount: document.getElementById('sentenceCount'),
+      paragraphCount: document.getElementById('paragraphCount'),
+      lineCount: document.getElementById('lineCount'),
+      readTime: document.getElementById('readTime'),
+      speakTime: document.getElementById('speakTime'),
+      avgWordLength: document.getElementById('avgWordLength'),
+      longestWord: document.getElementById('longestWord'),
+      pageEstimate: document.getElementById('pageEstimate'),
+      captionFit: document.getElementById('captionFit')
+    };
+
+    const stopWords = new Set([
+      'the','a','an','and','or','but','if','then','than','so','to','of','in','on','at','for','from','by','with',
+      'is','are','was','were','be','been','being','this','that','these','those','it','its','as','into','about',
+      'your','you','i','we','they','he','she','them','our','us','my','me','his','her','their','not','no','yes',
+      'can','could','should','would','will','just','very','also','more','most','some','such','up','down','out'
+    ]);
+
+    function formatTime(minutes) {
+      if (minutes < 1) return '< 1 min';
+      if (minutes < 60) return `${Math.ceil(minutes)} min`;
+      const hrs = Math.floor(minutes / 60);
+      const mins = Math.ceil(minutes % 60);
+      return `${hrs} hr ${mins} min`;
+    }
+
+    function getWords(text) {
+      return text.trim().match(/\b[\w'-]+\b/g) || [];
+    }
+
+    function updateStats() {
+      const text = textInput.value;
+      const trimmed = text.trim();
+      const words = getWords(text);
+      const sentences = trimmed ? (trimmed.match(/[^.!?]+[.!?]+|[^.!?]+$/g) || []).filter(s => s.trim().length > 0) : [];
+      const paragraphs = trimmed ? text.split(/\n\s*\n/).filter(p => p.trim().length > 0) : [];
+      const lines = text.length ? text.split('\n').length : 0;
+      const chars = text.length;
+      const charsNoSpaces = text.replace(/\s/g, '').length;
+      const wordCount = words.length;
+      const sentenceCount = sentences.length;
+      const paragraphCount = paragraphs.length;
+      const readMinutes = wordCount / 200;
+      const speakMinutes = wordCount / 130;
+      const longestWord = words.reduce((longest, current) => current.length > longest.length ? current : longest, '');
+      const avgWordLength = wordCount ? (words.reduce((sum, word) => sum + word.length, 0) / wordCount).toFixed(1) : 0;
+      const pageEstimate = wordCount ? (wordCount / 500).toFixed(1) : 0;
+      const captionFit = chars <= 2200 ? 'Yes' : 'No';
+      const goal = Number(goalInput.value);
+      const progress = goal ? Math.min((wordCount / goal) * 100, 100) : 0;
+
+      elements.wordCount.textContent = wordCount.toLocaleString();
+      elements.charCount.textContent = chars.toLocaleString();
+      elements.charNoSpaceCount.textContent = charsNoSpaces.toLocaleString();
+      elements.sentenceCount.textContent = sentenceCount.toLocaleString();
+      elements.paragraphCount.textContent = paragraphCount.toLocaleString();
+      elements.lineCount.textContent = lines.toLocaleString();
+      elements.readTime.textContent = formatTime(readMinutes);
+      elements.speakTime.textContent = formatTime(speakMinutes);
+      elements.avgWordLength.textContent = avgWordLength;
+      elements.longestWord.textContent = longestWord || '—';
+      elements.pageEstimate.textContent = pageEstimate;
+      elements.captionFit.textContent = captionFit;
+      goalLabel.textContent = `${wordCount.toLocaleString()} / ${goal.toLocaleString()}`;
+      goalProgress.style.width = `${progress}%`;
+      statusBadge.textContent = trimmed ? 'Analyzing' : 'Ready';
+
+      updateKeywords(words, wordCount);
+    }
+
+    function updateKeywords(words, totalWords) {
+      const counts = {};
+
+      words
+        .map(word => word.toLowerCase().replace(/[^\w'-]/g, ''))
+        .filter(word => word && !stopWords.has(word) && word.length > 2)
+        .forEach(word => {
+          counts[word] = (counts[word] || 0) + 1;
+        });
+
+      const topWords = Object.entries(counts)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 8);
+
+      if (!topWords.length) {
+        keywordsContainer.innerHTML = '<span class="text-sm text-slate-400">No keywords yet.</span>';
+        return;
+      }
+
+      keywordsContainer.innerHTML = topWords.map(([word, count]) => {
+        const density = totalWords ? ((count / totalWords) * 100).toFixed(1) : 0;
+        return `<span class="inline-flex items-center gap-2 px-3 py-2 rounded-full bg-slate-100 text-slate-700 text-sm font-semibold border border-slate-200">${word}<span class="text-xs text-slate-500">${count} • ${density}%</span></span>`;
+      }).join('');
+    }
+
+    sampleBtn.addEventListener('click', () => {
+      textInput.value = `Writing clearly matters more than writing a lot. This tool helps you understand how long your text is, how many words you have written, and whether your content feels balanced. It also estimates reading time, speaking time, and highlights your most repeated keywords.\n\nThat makes it useful for students, bloggers, marketers, and anyone working with text on a daily basis.`;
+      updateStats();
+      textInput.focus();
+    });
+
+    clearBtn.addEventListener('click', () => {
+      textInput.value = '';
+      updateStats();
+      textInput.focus();
+    });
+
+    copyBtn.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(textInput.value);
+        copyBtn.textContent = 'Copied';
+        setTimeout(() => copyBtn.textContent = 'Copy Text', 1500);
+      } catch (error) {
+        copyBtn.textContent = 'Copy Failed';
+        setTimeout(() => copyBtn.textContent = 'Copy Text', 1500);
+      }
+    });
+
+    textInput.addEventListener('input', updateStats);
+    goalInput.addEventListener('input', updateStats);
+
+    updateStats();
+  </script>
+<section class="site-crosslinks no-print" aria-label="Explore all tools"><div class="site-crosslinks__head"><h2 class="site-crosslinks__title">Explore More Tools</h2><p class="site-crosslinks__sub">All tools are now linked together for easier navigation.</p></div><div class="site-crosslinks__grid"><a class="site-crosslinks__card" href="nepali-unicode.html"><span class="site-crosslinks__name">Smart Unicode</span><span class="site-crosslinks__desc">Romanized Nepali to Devanagari conversion.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="emi-calculator.html"><span class="site-crosslinks__name">EMI Calculator</span><span class="site-crosslinks__desc">Calculate monthly loan payments and schedules.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="case-converter.html"><span class="site-crosslinks__name">Case Converter</span><span class="site-crosslinks__desc">Convert text to upper, lower, title, and more.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="typing-speed-practice.html"><span class="site-crosslinks__name">Typing Master</span><span class="site-crosslinks__desc">Practice speed typing with live WPM and accuracy.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="wifi-qr-code-generator.html"><span class="site-crosslinks__name">WiFi QR Generator</span><span class="site-crosslinks__desc">Create printable scan-to-connect WiFi QR cards.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="invoice.html"><span class="site-crosslinks__name">Invoice Generator</span><span class="site-crosslinks__desc">Create professional invoices and save them as PDF.</span><span class="site-crosslinks__cta">Open tool →</span></a><a class="site-crosslinks__card" href="cv_builder.html"><span class="site-crosslinks__name">CV Builder</span><span class="site-crosslinks__desc">Build a job-ready CV with live preview and PDF output.</span><span class="site-crosslinks__cta">Open tool →</span></a></div></section>
+</body>
+</html>
