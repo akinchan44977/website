@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>Cinematic Psychology Board</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Mukta:wght@400;700;800&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #020617; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    overflow-x: hidden;
+    font-family: 'Mukta', 'Poppins', sans-serif;
+    padding-top: 2vh;
+}
+
+/* ANIMATED FILM GRAIN */
+body::after {
+    content: '';
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    opacity: 0.04;
+    pointer-events: none;
+    background-image: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+    background-size: 4px 4px;
+    mix-blend-mode: soft-light;
+    animation: grainJitter 0.5s steps(2) infinite;
+    z-index: 10;
+}
+
+@keyframes grainJitter {
+    0% { transform: translate(0, 0); }
+    10% { transform: translate(-1%, -1%); }
+    20% { transform: translate(1%, 1%); }
+    30% { transform: translate(-2%, 2%); }
+    40% { transform: translate(2%, -2%); }
+    50% { transform: translate(-1%, 2%); }
+    60% { transform: translate(1%, -1%); }
+    70% { transform: translate(2%, 2%); }
+    80% { transform: translate(-2%, -2%); }
+    90% { transform: translate(1%, 2%); }
+    100% { transform: translate(0, 0); }
+}
+
+/* MAIN FRAME */
+#canvas-9x16 {
+    height: 80vh; 
+    aspect-ratio: 9/16;
+    position: relative;
+    overflow: hidden;
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 8cqh 0;
+    background: radial-gradient(circle at top, #1e293b 0%, #0f172a 40%, #020617 100%);
+    border: 1px solid rgba(255,255,255,0.05);
+    box-shadow: 0 20px 80px rgba(0,0,0,0.8), inset 0 0 100px rgba(255,255,255,0.03);
+    container-type: size;
+    transition: all 0.3s ease;
+}
+
+/* 🎥 RECORD MODE FOR iPHONE 🎥 */
+.record-mode {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important; /* dvh ignores Safari navigation bars */
+    border-radius: 0 !important;
+    border: none !important;
+    z-index: 9999 !important;
+    max-width: none !important;
+    cursor: pointer;
+}
+
+/* BREATHING AMBIENT LIGHT */
+.bg-glow {
+    position: absolute;
+    width: 70cqw;
+    height: 70cqw;
+    background: #38bdf8;
+    opacity: 0.05;
+    filter: blur(100px);
+    border-radius: 50%;
+    z-index: 0;
+    animation: breathe 8s ease-in-out infinite;
+}
+
+@keyframes breathe {
+    0%, 100% { transform: scale(1) translateY(0); opacity: 0.05; }
+    50% { transform: scale(1.1) translateY(5%); opacity: 0.09; }
+}
+
+/* TOP LABEL */
+.top-label {
+    position: absolute;
+    top: 4cqh;
+    letter-spacing: 0.2em;
+    font-size: 2.2cqw;
+    color: rgba(255,255,255,0.3);
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    z-index: 2;
+}
+
+/* TEXT BLOCK */
+#content-block {
+    position: relative;
+    z-index: 2;
+    width: 82%;
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: center;
+}
+
+/* TEXT DISPLAY */
+#text-display {
+    color: #fff;
+    line-height: 1.35;
+    letter-spacing: -0.01em;
+    font-weight: 700;
+    text-align: center; 
+    text-shadow: 0 0 15px rgba(255,255,255,0.1), 0 0 40px rgba(56,189,248,0.15);
+    word-break: break-word;
+    opacity: 0;
+}
+
+/* STACKED EMOJI BLOCK */
+.emoji-block {
+    display: block;
+    font-size: 1.4em; 
+    margin-bottom: 15px; 
+    filter: drop-shadow(0 0 20px rgba(255,255,255,0.15));
+    animation: floatEmoji 4s ease-in-out infinite;
+}
+
+@keyframes floatEmoji {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-6px); }
+}
+
+/* HIGHLIGHT */
+.highlight {
+    color: #38bdf8;
+    font-weight: 800;
+    text-shadow: 0 0 20px rgba(56,189,248,0.3);
+}
+
+/* ANIMATIONS */
+.animate-in {
+    animation: cinematicReveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-out {
+    animation: cinematicHide 0.5s cubic-bezier(0.5, 0, 0.2, 1) forwards;
+}
+
+@keyframes cinematicReveal {
+    0% { opacity: 0; transform: translateY(20px) scale(0.98); filter: blur(8px); }
+    100% { opacity: 1; transform: translateY(0px) scale(1); filter: blur(0px); }
+}
+
+@keyframes cinematicHide {
+    0% { opacity: 1; transform: translateY(0px) scale(1); filter: blur(0px); }
+    100% { opacity: 0; transform: translateY(-15px) scale(0.98); filter: blur(8px); }
+}
+
+/* NAVIGATION KEYS */
+#nav-keys {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+    z-index: 20;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: rgba(255, 255, 255, 0.7);
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.nav-btn:hover {
+    background: rgba(56, 189, 248, 0.15);
+    color: #38bdf8;
+    border-color: #38bdf8;
+    transform: translateY(-2px);
+}
+
+#btn-record {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+    box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+}
+
+#btn-record:hover {
+    background: #dc2626;
+    color: #fff;
+    box-shadow: 0 6px 20px rgba(239, 68, 68, 0.5);
+}
+
+/* CONTROL PANEL */
+#control-panel {
+    width: 92vw;
+    max-width: 550px;
+    margin-top: 20px;
+    padding-bottom: 50px;
+    z-index: 20;
+}
+
+#script-input {
+    width: 100%;
+    height: 180px;
+    background: #0f172a;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 16px;
+    padding: 18px;
+    resize: vertical;
+    font-size: 14px;
+    line-height: 1.6;
+    outline: none;
+    font-family: 'Mukta', sans-serif;
+}
+
+#script-input:focus {
+    border-color: #38bdf8;
+}
+
+#update-btn {
+    width: 100%;
+    margin-top: 14px;
+    border: none;
+    padding: 16px;
+    border-radius: 16px;
+    background: #38bdf8;
+    color: #020617;
+    font-weight: 800;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.25s ease;
+    font-family: 'Poppins', sans-serif;
+}
+
+@media(max-width:600px){
+    #canvas-9x16 {
+        width: 95vw;
+        height: 65vh;
+    }
+}
+</style>
+</head>
+<body>
+
+<div id="canvas-9x16">
+    <div class="bg-glow"></div>
+    <div class="top-label">PSYCHOLOGY</div>
+    
+    <div id="content-block">
+        <div id="text-display"></div>
+    </div>
+</div>
+
+<div id="nav-keys">
+    <button class="nav-btn" id="btn-prev">◀ PREV</button>
+    <button class="nav-btn" id="btn-next">NEXT ▶</button>
+    <button class="nav-btn" id="btn-record">🎥 RECORD</button>
+</div>
+
+<div id="control-panel">
+<textarea id="script-input">
+🚩 के कहिल्यै यस्तो भएको छ…
+गल्ती अरूले गर्छन्,
+अन्त्यमा माफी तपाईंले नै माग्नुपर्ने अवस्था आउँछ?
+---
+🛑 तपाईंले स्पष्ट रूपमा देखेको कुरा पनि…
+कसैले यति धेरै इन्कार गर्छ कि…
+अन्त्यमा तपाईं आफ्नै दिमागमाथि शंका गर्न थाल्नुहुन्छ?
+---
+😔 हरेक झगडापछि
+तपाईं नै Confused, Guilty
+र Mentally Drained महसुस गर्नुहुन्छ?
+---
+🚨 यदि त्यसो हो भने,
+तपाईं 'Gaslighting' को सिकार भइरहनुभएको हुन सक्छ।
+---
+🧠 यो कुनै सामान्य झैझगडा होइन।
+---
+📉 यो एउटा खतरनाक
+र अदृश्य मानसिक खेल हो।
+---
+🕸️ जहाँ एउटा व्यक्तिले तपाईंलाई
+तपाईंको आफ्नै Mind, emotions र Reality माथि
+शंका गर्न बाध्य बनाउँछ।
+---
+⚠️ यसको मुख्य उद्देश्य नै
+तपाईंको आत्मविश्वास तोडेर
+तपाईंमाथि पूर्ण नियन्त्रण पाउनु हो।
+</textarea>
+<button id="update-btn">UPDATE SCRIPT</button>
+</div>
+
+<script>
+let myScript = [];
+let currentIndex = -1;
+let isAnimating = false;
+
+const canvas = document.getElementById('canvas-9x16');
+const textDisplay = document.getElementById('text-display');
+
+const highlightWords = [
+    "Gaslighting", "Confused", "Guilty", "Mentally Drained", 
+    "Mind", "Reality", "Sensitive", "Overthinking", "emotions"
+];
+
+function applyHighlights(text){
+    highlightWords.forEach(word => {
+        const regex = new RegExp(`(${word})`, 'gi');
+        text = text.replace(regex, `<span class="highlight">$1</span>`);
+    });
+    return text;
+}
+
+function getFontSize(textLength){
+    // Adjust logic for edge-to-edge fullscreen mobile view
+    if(canvas.classList.contains('record-mode')) {
+        if(textLength < 25) return "10vw";
+        if(textLength < 60) return "8.5vw";
+        if(textLength < 100) return "7vw";
+        return "6vw";
+    } else {
+        if(textLength < 25) return "9cqw";
+        if(textLength < 60) return "7.5cqw";
+        if(textLength < 100) return "6cqw";
+        return "5cqw";
+    }
+}
+
+function renderNewText(line, emoji) {
+    const finalHTML = `
+        ${emoji ? `<div class="emoji-block">${emoji}</div>` : ''}
+        <div class="text-block">${applyHighlights(line)}</div>
+    `;
+    
+    textDisplay.innerHTML = finalHTML;
+    textDisplay.style.fontSize = getFontSize(line.length);
+    
+    textDisplay.classList.remove('animate-out');
+    textDisplay.classList.add('animate-in');
+    
+    setTimeout(() => { isAnimating = false; }, 900); 
+}
+
+function updateBoard(direction = 'next'){
+    if(isAnimating) return; 
+    if(myScript.length === 0) return;
+    
+    isAnimating = true;
+
+    if (direction === 'next') {
+        currentIndex = (currentIndex + 1) % myScript.length;
+    } else if (direction === 'prev') {
+        currentIndex = (currentIndex - 1 + myScript.length) % myScript.length;
+    }
+
+    let line = myScript[currentIndex].trim();
+
+    const emojiMatch = line.match(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/u);
+    let emoji = "";
+    if(emojiMatch){
+        emoji = emojiMatch[0];
+        line = line.replace(emoji, "").trim();
+    }
+
+    if(textDisplay.innerHTML.trim() !== "") {
+        textDisplay.classList.remove('animate-in');
+        textDisplay.classList.add('animate-out');
+        
+        setTimeout(() => {
+            renderNewText(line, emoji);
+        }, 400); 
+    } else {
+        renderNewText(line, emoji);
+    }
+}
+
+// UPDATE BUTTON
+document.getElementById('update-btn').onclick = () => {
+    myScript = document.getElementById('script-input').value.split('---').filter(line => line.trim());
+    currentIndex = -1;
+    textDisplay.innerHTML = ""; 
+    updateBoard('next');
+};
+
+// PREV / NEXT BUTTONS
+document.getElementById('btn-prev').onclick = () => updateBoard('prev');
+document.getElementById('btn-next').onclick = () => updateBoard('next');
+
+// 🎥 RECORD MODE LOGIC 🎥
+document.getElementById('btn-record').onclick = () => {
+    canvas.classList.add('record-mode');
+    // Re-render current text to adjust font sizes for full screen
+    let currentLine = textDisplay.innerHTML;
+    updateBoard('next'); 
+    updateBoard('prev'); 
+    
+    alert("🎥 RECORD MODE ACTIVE\n\n• Start your iPhone screen recording.\n• Tap anywhere on the black screen to advance to the next slide.\n• DOUBLE-TAP anywhere to exit Record Mode.");
+};
+
+// Exit Record Mode
+canvas.addEventListener('dblclick', () => {
+    canvas.classList.remove('record-mode');
+    updateBoard('next'); 
+    updateBoard('prev'); 
+});
+
+// Tap to advance ONLY in Record Mode
+canvas.addEventListener('click', (e) => {
+    if(canvas.classList.contains('record-mode')) {
+        updateBoard('next');
+    }
+});
+
+// KEYBOARD CONTROLS
+document.onkeydown = (e) => {
+    if(['Space', 'ArrowRight', 'ArrowLeft'].includes(e.code)) {
+        if (document.activeElement.id !== 'script-input') {
+            e.preventDefault();
+        }
+    }
+    if (document.activeElement.id !== 'script-input') {
+        if(e.code === 'Space' || e.code === 'ArrowRight'){
+            updateBoard('next');
+        } else if (e.code === 'ArrowLeft') {
+            updateBoard('prev');
+        } else if (e.code === 'Escape') {
+            canvas.classList.remove('record-mode'); // Press Esc to exit fullscreen on desktop
+        }
+    }
+};
+
+// INITIAL LOAD
+myScript = document.getElementById('script-input').value.split('---').filter(line => line.trim());
+updateBoard('next');
+</script>
+
+</body>
+</html>
