@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="ne">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Nirajan.info.np | Deep Dives on Psychology & Human Behavior</title>
+    <meta name="description" content="Research-backed articles on psychology, mindset, behavioral economics, and human behavior in Nepali.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Noto+Sans+Devanagari:wght@400;600;700&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-hover: #1d4ed8;
+            --text-main: #1f2937;
+            --text-muted: #4b5563;
+            --bg-color: #fcfcfc;
+            --bg-surface: #ffffff;
+            --border-color: #e5e7eb;
+            --accent-bg: #eff6ff;
+            --font-ui: 'Inter', sans-serif;
+            --font-reading: 'Merriweather', 'Noto Sans Devanagari', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-reading);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- Navigation --- */
+        header.site-header {
+            background-color: var(--bg-surface);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: var(--font-ui);
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links a {
+            font-family: var(--font-ui);
+            text-decoration: none;
+            color: var(--text-muted);
+            margin-left: 1.5rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover { color: var(--primary-color); }
+
+        /* --- Hero Section --- */
+        .hero {
+            max-width: 800px;
+            margin: 4rem auto 3rem;
+            text-align: center;
+            padding: 0 1.5rem;
+        }
+
+        .hero h1 {
+            font-family: var(--font-ui);
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--text-main);
+            letter-spacing: -1px;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+        }
+
+        /* --- Blog Grid --- */
+        .grid-container {
+            max-width: 1200px;
+            margin: 0 auto 5rem;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.06);
+            border-color: #d1d5db;
+        }
+
+        .card-category {
+            font-family: var(--font-ui);
+            color: var(--primary-color);
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .card-title {
+            font-family: var(--font-ui);
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--text-main);
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+
+        .card-excerpt {
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .card-meta {
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--accent-bg);
+            padding-top: 1rem;
+        }
+
+        /* --- Responsive --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            .grid-container { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="nav-container">
+            <a href="/" class="logo">Nirajan.info.np</a>
+            <nav class="nav-links">
+                <a href="/">Home</a>
+                <a href="/research">Research</a>
+                <a href="/about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <h1>Decoding the Human Mind</h1>
+        <p>Deep-dive, research-backed articles on psychology, mindset, and human behavior broken down into actionable Nepali insights.</p>
+    </section>
+
+    <main class="grid-container">
+        
+        <a href="psychology-anger-nepali.html" class="card">
+            <span class="card-category">Psychology & Self-Control</span>
+            <h2 class="card-title">The Psychology of Anger: रिस, पछुतो र थप गल्तीको चक्रमा हामी कसरी फस्छौं?</h2>
+            <p class="card-excerpt">रिसको बेला जे पायो त्यही बोल्ने, पछि पछुतो (Guilt) मान्ने र सुधार्न खोज्दा झन् बिग्रिने चक्र (Anger-Guilt Loop) बाट कसरी बच्ने?</p>
+            <div class="card-meta">
+                <span>June 16, 2026</span>
+                <span>⏳ 20 Min Read</span>
+            </div>
+        </a>
+
+        <a href="tragedy-commons-nepali.html" class="card">
+            <span class="card-category">Behavioral Economics</span>
+            <h2 class="card-title">The Tragedy of the Commons: हामी सबै मिलेर कसरी आफ्नै विनाश गर्दैछौं?</h2>
+            <p class="card-excerpt">सडकको जामदेखि जलवायु परिवर्तनसम्म— जान्नुहोस् मानव मनोविज्ञानको त्यो अँध्यारो पाटो जसले व्यक्तिगत फाइदाको लागि सम्पूर्ण समाजको नोक्सान गर्छ।</p>
+            <div class="card-meta">
+                <span>June 16, 2026</span>
+                <span>⏳ 22 Min Read</span>
+            </div>
+        </a>
+
+        <a href="psychology-overthinking-nepali.html" class="card">
+            <span class="card-category">Psychology & Mental Health</span>
+            <h2 class="card-title">The Psychology of Overthinking: ओभरथिंकिङले तपाईंको जीवन कसरी बर्बाद गर्दैछ?</h2>
+            <p class="card-excerpt">राति निद्रा लाग्दैन? एउटै कुरा बारम्बार दिमागमा खेलिरहन्छ? जान्नुहोस् ओभरथिंकिङको मनोवैज्ञानिक कारण र यसलाई रोक्ने उपायहरू।</p>
+            <div class="card-meta">
+                <span>June 16, 2026</span>
+                <span>⏳ 20 Min Read</span>
+            </div>
+        </a>
+
+        <a href="learned-helplessness-nepali.html" class="card">
+            <span class="card-category">Psychology & Mindset</span>
+            <h2 class="card-title">Learned Helplessness: किन हामी प्रयास गर्न छोड्छौँ? (The Psychology of Failure)</h2>
+            <p class="card-excerpt">विगतका असफलताहरूले कसरी हाम्रो दिमागमा सिकिएको असहायपन सिर्जना गर्छन् र यसलाई कसरी तोड्ने भन्ने पूर्ण विश्लेषण।</p>
+            <div class="card-meta">
+                <span>June 16, 2026</span>
+                <span>⏳ 10 Min Read</span>
+            </div>
+        </a>
+
+        <a href="psychology-insecurities-nepali.html" class="card">
+            <span class="card-category">Mental Health</span>
+            <h2 class="card-title">The Psychology of Insecurities: के संसारले साँच्चै तपाईंका कमजोरीहरू मात्र हेर्छ?</h2>
+            <p class="card-excerpt">हाम्रो दिमागले कसरी हामीलाई आफ्नै कमजोरीहरूको कैदी बनाउँछ? ५० वर्ष पुरानो एक मनोवैज्ञानिक प्रयोगबाट जान्नुहोस् यथार्थ।</p>
+            <div class="card-meta">
+                <span>June 15, 2026</span>
+                <span>⏳ 20 Min Read</span>
+            </div>
+        </a>
+
+        <a href="psychology-narcissism-nepali.html" class="card">
+            <span class="card-category">Psychology & Relationships</span>
+            <h2 class="card-title">The Psychology of Narcissism: तपाईंको Partner Narcissist हो कि?</h2>
+            <p class="card-excerpt">के तपाईं सम्बन्धमा सधैँ 'Walking on Eggshells' महसुस गर्नुहुन्छ? जान्नुहोस् नार्सिसिस्टिक म्यानिपुलेसनका गहिरा रहस्यहरू।</p>
+            <div class="card-meta">
+                <span>June 15, 2026</span>
+                <span>⏳ 18 Min Read</span>
+            </div>
+        </a>
+
+        <a href="psychology-gossip-nepali.html" class="card">
+            <span class="card-category">Psychology & Spirituality</span>
+            <h2 class="card-title">The Psychology of Gossip: अरूको आलोचना गर्दा कसरी जीवन बर्बाद हुन्छ?</h2>
+            <p class="card-excerpt">यमराजको न्यायको पौराणिक कथा र आधुनिक विज्ञान। किन हामी अरूको 'Judge' गर्दा आफ्नै मानसिक शान्ति गुमाउँछौँ?</p>
+            <div class="card-meta">
+                <span>June 15, 2026</span>
+                <span>⏳ 15 Min Read</span>
+            </div>
+        </a>
+
+    </main>
+</body>
+</html>
